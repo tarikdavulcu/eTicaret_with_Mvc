@@ -1,0 +1,174 @@
+﻿<div class="ui-content-body">
+    <div class="ui-container">
+        <!--page title and breadcrumb start -->
+        <div class="row">
+            <div class="col-md-8">
+                <h1 class="page-title">
+                    Slider Ayarları
+                </h1>
+            </div>
+            <div class="col-md-4">
+                <ul class="breadcrumb pull-right">
+                    <a href="#sliderEkleme" data-toggle='modal' class="btn btn-info"><i class="fa fa-plus"></i></a>
+                    <a href="#" class="btn btn-danger"><i class="fa fa-trash-o"></i></a>
+                </ul>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12">
+                <div class="panel">
+                    <div class="panel-body">
+                        <div class="panel panel-default">
+                            <div class="panel-heading">
+                                <h3 class="panel-title"><i class="fa fa-list"></i> Slİder LİSTESİ</h3>
+                            </div>
+                            <div class="panel-body">
+                                <div class="table-responsive">
+                                    <table class='table table-bordered table-hover'>
+                                        <thead>
+                                            <tr>
+                                                <td style="width: 1px;" class="text-center"><input type="checkbox" onclick="$('input[name*=\'chk\']').prop('checked', this.checked);"></td>
+                                                <td class="text-left">Resim</td>
+                                                <td class="text-left"> Slider Adı </td>
+                                                <td class="text-left">URL</td>
+                                                <td class="text-left">Durum</td>
+                                                <td class="text-right">İşlemler</td>
+                                            </tr>
+                                        </thead>
+                                        <tbody id="tabloSlider">
+                                            <tr>
+                                                <td class="text-center">
+                                                    <input type="checkbox" name="selected[]" value="42">
+                                                </td>
+                                                <td class="text-left"> <img src="https://demo.opencart.com/image/cache/catalog/demo/apple_cinema_30-40x40.jpg" alt="Apple Cinema 30&quot;" class="img-thumbnail"> </td>
+                                                <td class="text-left">Apple Cinema 30"</td>
+                                                <td class="text-left">URL</td>
+                                                <td class="text-left">Enabled</td>
+                                                <td class="text-right"><a href="#" data-toggle="tooltip" title="" class="btn btn-primary" data-original-title="Edit"><i class="fa fa-pencil"></i></a></td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<div aria-hidden="true" aria-labelledby="myModalLabel" role="dialog" tabindex="-1" id="sliderEkleme" class="modal fade" style="display: none;">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button aria-hidden="true" data-dismiss="modal" class="close" type="button">×</button>
+                <h4 class="modal-title">Yeni Slider Ekleme</h4>
+            </div>
+            <div class="modal-body">
+
+                <div class="form-group">
+                    <label for="exampleInputEmail1">Slider Adı</label>
+                    <input class="form-control" id="sliderAdi" placeholder="Slider Adı" type="text">
+                </div>
+                <div class="form-group">
+                    <label for="exampleInputEmail1">Slider Ana Metin</label>
+                    <input class="form-control" id="sliderMetin" placeholder="Slider Metin" type="text">
+                </div>
+                <div class="form-group">
+                    <label for="exampleInputEmail1">Slider Ek Metin</label>
+                    <input class="form-control" id="sliderMetinEk" placeholder="Slider Metin" type="text">
+                </div>
+                <div class="form-group">
+                    <label for="exampleInputEmail1">Button Metini</label>
+                    <input class="form-control" id="butonMetin" placeholder="Detay-Açıklama vb. Kelime Yazılabilir" type="text">
+                </div>
+                <div class="form-group">
+                    <label for="exampleInputEmail1">Resim Düzenle</label>
+                    <input class="form-control" id="resim" multiple type="file">
+                </div>
+
+                <div class="form-group">
+                    <label for="exampleInputEmail1">Yönlendirme Adres</label>
+                    <input class="form-control" id="url" placeholder="Yönlendirme Adresi" type="text">
+                </div>
+
+                <div class="form-group">
+                    <label for="exampleInputEmail1">Durum</label>
+                    <select class="form-control" id="sliderDurum">
+                        <option value="1">Aktif</option>
+                        <option value="0">Pasif</option>
+                    </select>
+                </div>
+
+                <a href="#" onclick="sliderEkle();" data-dismiss="modal" class="btn btn-success"><i class="fa fa-check"></i> Kaydet</a>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<div aria-hidden="true" aria-labelledby="myModalLabel" role="dialog" tabindex="-1" id="sliderDuzenle" class="modal fade" style="display: none;">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button aria-hidden="true" data-dismiss="modal" class="close" type="button">×</button>
+                <h4 class="modal-title">Slider Bilgi Güncelleme</h4>
+            </div>
+            <div class="modal-body">
+                <div class="form-group">
+                    <label for="exampleInputEmail1">Slider Adı</label>
+                    <input class="form-control" id="sliderAdiG" placeholder="Slider Adı" type="text">
+                </div>
+                <div class="form-group">
+                    <label for="exampleInputEmail1">Slider Ana Metin</label>
+                    <input class="form-control" id="sliderMetinG" placeholder="Slider Metin" type="text">
+                </div>
+                <div class="form-group">
+                    <label for="exampleInputEmail1">Slider Ek Metin</label>
+                    <input class="form-control" id="sliderMetinEkG" placeholder="Slider Metin" type="text">
+                </div>
+                <div class="form-group">
+                    <label for="exampleInputEmail1">Button Metini</label>
+                    <input class="form-control" id="butonMetinG" placeholder="Detay-Açıklama vb. Kelime Yazılabilir" type="text">
+                </div>
+                <div class="form-group">
+                    <img id="sliderResmiG" src="#" alt="" style='width: 30%; ' title="" data-placeholder="#">
+
+                </div>
+
+                <div class="form-group">
+                    <label for="exampleInputEmail1">Resim Düzenle</label>
+                    <input class="form-control" id="resimG" multiple type="file">
+                </div>
+
+                <div class="form-group">
+                    <label for="exampleInputEmail1">Yönlendirme Adresi</label>
+                    <input class="form-control" id="urlG" placeholder="Yönlendirme Adresi" type="text">
+                </div>
+
+                <div class="form-group">
+                    <label for="exampleInputEmail1">Durum</label>
+                    <select class="form-control" id="sliderDurumG">
+                        <option value="true">Aktif</option>
+                        <option value="false">Pasif</option>
+                    </select>
+                </div>
+
+                <a href="#" onclick="sliderGuncelle();" data-dismiss="modal" class="btn btn-success"><i class="fa fa-check"></i> Güncelle</a>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<script type="text/javascript">
+
+    $(document).ready(function () {
+        slider();
+
+    });
+
+
+</script>

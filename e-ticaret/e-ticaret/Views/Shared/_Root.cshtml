@@ -1,0 +1,166 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>NOTABU</title>
+    <meta name="description" content="NOTABU" />
+    <meta name="keywords" content="philos, WooCommerce, bootstrap, html template, philos template">
+    <meta name="author" content="philos" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0" />
+    <link rel="shortcut icon" type="image/x-icon" href="~/Content/img/favicon.ico">
+    <link rel="icon" type="img/png" href="~/Content/img/favicon.png">
+    <link rel="apple-touch-icon" href="~/Content/img/favicon.png">
+
+    <link href="~/Content/css/plugins/bootstrap.css" rel="stylesheet" type="text/css" />
+    <link href="~/Content/css/plugins/font-awesome.min.css" rel="stylesheet" type="text/css" />
+    <link href="~/Content/css/plugins/animate.css" rel="stylesheet" type="text/css" />
+    <link href="~/Content/css/style.css" rel="stylesheet" type="text/css" />
+    <link href="~/Content/plugins/rev_slider/css/settings-ver.5.3.1.css" rel="stylesheet" type="text/css" />
+    <link href="~/Content/plugins/photoswipe_popup/photoswipe.css" rel="stylesheet" type="text/css" />
+    <link href="~/Content/plugins/photoswipe_popup/default-skin/default-skin.css" rel="stylesheet" type="text/css" />
+
+
+</head>
+<body>
+
+
+
+    <!-- Search Overlay Menu ----------------------------------------------------->
+    <section class="search-overlay-menu">
+        <!-- Close Icon -->
+        <a href="javascript:void(0)" class="search-overlay-close"></a>
+        <!-- End Close Icon -->
+        <div class="container">
+            <!-- Search Form -->
+            <form role="search" id="searchform" action="/search" method="get">
+                <div class="search-icon-lg">
+                    <img src="img/search-icon-lg.png" alt="" />
+                </div>
+                <label class="h6 normal search-input-label" for="search-query">Enter keywords to Search Product</label>
+                <input value="" name="q" type="search" placeholder="Search..." />
+                <button type="submit">
+                    <img src="img/search-lg-go-icon.png" alt="" />
+                </button>
+            </form>
+            <!-- End Search Form -->
+
+        </div>
+    </section>
+    <!-- End Search Overlay Menu ------------------------------------------------>
+    <!--==========================================-->
+    <!-- wrapper -->
+    <!--==========================================-->
+    <div class="wraper">
+
+        <!-- Header -->
+        <header class="header">
+            <!--Topbar-->
+            <!--End Topbart-->
+            @{
+
+                Html.RenderAction("HeaderTopBar", "Shop");
+            }
+        </header>
+        <!-- End Header -->
+        <!-- Page Content Wraper -->
+        <div class="page-content-wraper">
+            @RenderBody();
+        </div>
+        <!-- End Page Content Wraper -->
+        <!-- Footer Section -------------->
+        <footer class="footer section-padding">
+            @{
+
+                Html.RenderAction("Fotter", "Shop");
+            }
+        </footer>
+        <!-- End Footer Section -------------->
+    </div>
+    <!-- End wrapper =============================-->
+    <!--==========================================-->
+    <!-- JAVASCRIPT -->
+    <!--==========================================-->
+    <script type="text/javascript" src="~/Content/js/jquery.min.js"></script>
+    <script type="text/javascript" src="~/Content/js/plugins/jquery-ui.js"></script>
+    <!-- jquery library js -->
+    <script type="~/Content/text/javascript" src="~/Content/js/plugins/modernizr.js"></script>
+    <!--modernizr Js-->
+    <script type="text/javascript" src="~/Content/plugins/rev_slider/js/jquery.themepunch.revolution.min.js"></script>
+    <script type="text/javascript" src="~/Content/plugins/rev_slider/js/jquery.themepunch.tools.min.js"></script>
+    <script type="text/javascript" src="~/Content/plugins/rev_slider/js/revolution.extension.navigation.min.js"></script>
+    <script type="text/javascript" src="~/Content/plugins/rev_slider/js/revolution.extension.parallax.min.js"></script>
+    <script type="text/javascript" src="~/Content/plugins/rev_slider/js/revolution.extension.slideanims.min.js"></script>
+    <script type="text/javascript" src="~/Content/plugins/rev_slider/js/revolution.extension.layeranimation.min.js"></script>
+    <!--Slider Revolution Js File-->
+    <script type="text/javascript" src="~/Content/js/plugins/tether.min.js"></script>
+    <!--Bootstrap tooltips require Tether (Tether Js)-->
+    <script type="text/javascript" src="~/Content/js/plugins/bootstrap.min.js"></script>
+    <!-- bootstrap js -->
+    <script type="text/javascript" src="~/Content/js/plugins/owl.carousel.js"></script>
+    <!-- OWL carousel js -->
+    <script type="text/javascript" src="~/Content/js/plugins/slick.js"></script>
+    <!-- Slick Slider js -->
+    <script type="text/javascript" src="~/Content/plugins/photoswipe_popup/photoswipe.min.js"></script>
+    <script type="text/javascript" src="~/Content/plugins/photoswipe_popup/photoswipe-ui-default.min.js"></script>
+    <script type="text/javascript" src="~/Content/plugins/photoswipe_popup/photoswipe-core.js"></script>
+    <script type="text/javascript" src="~/Content/js/plugins/plugins-all.js"></script>
+    <!-- Plugins All js -->
+    <script type="text/javascript" src="~/Content/js/custom.js"></script>
+    <!-- custom js -->
+    <!-- end jquery -->
+
+    <script>
+        function degistir() { var btnR = document.querySelector("#sidebar-right"); btnR.classList.add("sidebar-open"); var btnO = document.querySelector("#sidebar_overlay"); btnO.classList.add("sidebar_overlay_active"); } function temizle() { var btnR = document.querySelector("#sidebar_toggle_btn"); btnR.classList.remove("active"); var btnR = document.querySelector("#sidebar-right"); btnR.classList.remove("sidebar-open"); var btnO = document.querySelector("#sidebar_overlay"); btnO.classList.remove("sidebar_overlay_active"); getir(); }
+        function sil(id, d) {
+
+            var params = "{'sid':'" + id + "'}";
+
+            $.ajax({
+                type: "POST",
+                url: "/Urunler/SepetenKaldir",
+                dataType: "JSON",
+                contentType: "application/json;charset=utf-8",
+                data: params,
+                success: function (sender) {
+                    $("#" + d + id).remove();
+                },
+                error: function (eror) {
+                }
+            });
+        }
+        function ekle() {
+            var params = "{'uid':'" + document.getElementById("uid").value + "','fiyat':'" + document.getElementById("fiyat").value + "','adet':'" + document.getElementById("adet").value + "','beden':'" + document.getElementById("beden").value + "','renk':'" + document.getElementById("renk").value + "'}";
+
+            $.ajax({
+                type: "POST",
+                url: "/Urunler/SepeteEkle",
+                dataType: "JSON",
+                contentType: "application/json;charset=utf-8",
+                data: params,
+                success: function (sender) {
+                    getir();
+                },
+                error: function (eror) {
+                }
+            });
+        }
+
+        function getir() {
+            $.ajax({
+                type: "POST",
+                dataType: "html",
+                url: "/Urunler/Sepet",
+                cache: false,
+                success: function getir(result) {
+                    $("#sepet").empty();
+                    $("#sepet").append(result);
+                },
+                error: function (eror) {
+                }
+            });
+        }
+    </script>
+
+
+</body>
+</html>

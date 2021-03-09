@@ -1,0 +1,39 @@
+﻿@model IEnumerable<e_ticaret.Models.BlogHaberL>
+@{
+    ViewBag.Title = "Blog";
+    Layout = "~/Views/Shared/_Root.cshtml";
+}
+@if (Model.Count() > 0)
+{
+    <!-- Blog & News -->
+    <section class="section-padding">
+        <div class="container">
+            <h2 class="page-title">Blog & News</h2>
+        </div>
+        <div class="container">
+            <div id="blog-carousel" class="blog-carousel owl-carousel owl-theme nf-carousel-theme1">
+
+                @foreach (var item in Model)
+                {
+                    <div class="product-item">
+                        <div class="blog-box">
+                            <div class="blog-img-wrap">
+                                <img src="~/Content/img/blog/@item.Resim" alt="@item.Baslik" />
+                            </div>
+                            <div class="blog-box-content">
+                                <div class="blog-box-content-inner">
+                                    <h4 class="blog-title"><a href="#">@item.Baslik</a></h4>
+                                    <p class="info"><span>by <a href="#">@item.Baslik</a></span><span>@item.Tarih</span></p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                }
+
+            </div>
+
+        </div>
+    </section>
+    <!-- End Blog & News -->
+
+}

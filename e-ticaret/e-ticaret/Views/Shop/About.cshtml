@@ -1,0 +1,75 @@
+﻿@model IEnumerable<e_ticaret.Models.Metinler>
+@{
+    ViewBag.Title = "About";
+    Layout = "~/Views/Shared/_Root.cshtml";
+}
+
+@foreach (var item in Model)
+{
+    <!-- Page Content Wraper -->
+    <div class="page-content-wraper">
+        <!-- Bread Crumb -->
+        <section class="breadcrumb">
+            <div class="container">
+                <div class="row">
+                    <div class="col-12">
+                        <nav class="breadcrumb-link">
+                            <a href="/Shop/Index">Home</a>
+                            <span>About Us</span>
+                        </nav>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- Bread Crumb -->
+        <!-- Page Content -->
+        <section class="content-page">
+            <div class="container mb-80">
+                <div class="row">
+                    <div class="col-md-10 offset-md-1">
+                        <div class="row mb-45">
+                            <div class="col-sm-12 text-center">
+                                <h2 class="normal"><span>@item.GirisYazisiBaslik</span></h2>
+                                <p class="large">@item.GirisYazisi</p>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <section class="section-padding bg-gray">
+                <div class="container text-center mb-45">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <h2 class="normal"><span>What About Us</span></h2>
+                            <p class="large">
+                                @Html.Raw(item.Hakkimizda)
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <div class="container">
+                    <div class="row">
+                        <div class="col-md-4 col-sm-6 mb-xs-30">
+                            <h5>Vizyonumuz</h5>
+                            @Html.Raw(item.Vizyon)
+                        </div>
+                        <div class="col-md-4 col-sm-6 mb-xs-30">
+                            <h5>Misyonumuz</h5>
+                            @Html.Raw(item.Misyon)
+                        </div>
+                        <div class="col-md-4 col-sm-6">
+                            <h5>Stratejimiz</h5>
+                            @Html.Raw(item.Strateji)
+                        </div>
+                    </div>
+                </div>
+            </section>
+            
+        </section>
+        <!-- End Page Content -->
+
+    </div>
+    <!-- End Page Content Wraper -->
+}
+

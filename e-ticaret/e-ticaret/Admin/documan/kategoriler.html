@@ -1,0 +1,186 @@
+﻿<div class="ui-content-body">
+
+    <div class="ui-container">
+        <div class="row">
+            <div class="col-md-8">
+                <h1 class="page-title">
+                    Kategoriler
+                    <small>Kategori Listesi</small>
+                </h1>
+            </div>
+            <div class="col-md-4">
+                <ul class="breadcrumb pull-right">
+                    <a href="#kategoriekleme" data-toggle='modal' class="btn btn-info"><i class="fa fa-plus"></i></a>
+                    <a onclick="islem(1);" class="btn btn-success"><i class="fa fa-refresh"></i></a>
+                    <a onclick="islem(0);" class="btn btn-danger"><i class="fa fa-trash-o"></i></a>
+                </ul>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12">
+                <div class="panel">
+                    <div class="panel-body">
+                        <div class="panel panel-default">
+                            <div class="panel-heading">
+                                <h3 class="panel-title"><i class="fa fa-list"></i> Kategorİ LİSTESİ</h3>
+                            </div>
+                            <div class="panel-body">
+                                <div class="table-responsive">
+                                    <table class="table table-bordered table-hover">
+                                        <thead>
+                                            <tr>
+                                                <td style="width: 1px;" class="text-center"><input type="checkbox" onclick="$('input[name*=\'chk\']').prop('checked', this.checked);"></td>
+                                                <td class="text-left"><a href="#" class="asc">Kategori Adı</a></td>
+                                                <td class="text-center"><a href="#">Resim</a></td>
+                                                <td class="text-right"><a href="#">Durum</a></td>
+                                                <td class="text-right">İşlem</td>
+                                            </tr>
+                                        </thead>
+                                        <tbody id="tabloKat">
+                                            <tr>
+                                                <td class="text-center"><input type="checkbox" name="selected[]" value="0"></td>
+                                                <td class="text-left">Cameras</td>
+                                                <td class='text-center'> <img src='' alt='' class='img-thumbnail'> </td>
+                                                <td class="text-right">6</td>
+                                                <td class="text-right"><a href="" data-toggle="tooltip" title="" class="btn btn-primary" data-original-title="Edit"><i class="fa fa-pencil"></i></a></td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+
+</div>
+
+
+<div aria-hidden="true" aria-labelledby="myModalLabel" role="dialog" tabindex="-1" id="kategoriekleme" class="modal fade" style="display: none;">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button aria-hidden="true" data-dismiss="modal" class="close" type="button">×</button>
+                <h4 class="modal-title">Yeni Kategori Ekleme</h4>
+            </div>
+            <div class="modal-body">
+                <div class="form-group">
+                    <label for="exampleInputEmail1">Kategori Adı</label>
+                    <input class="form-control" id="kategoriadi" placeholder="Kategori Adı" type="text">
+                </div>
+                <div class="form-group">
+                    <label for="exampleInputEmail1">Açıklama</label>
+                    <input class="form-control" id="aciklama" placeholder="Açıklama" type="text">
+                </div>
+                <div class="form-group">
+                    <label for="exampleInputEmail1">Açıklama</label>
+                    <input class="form-control" id="resim" multiple type="file">
+                </div>
+                <a href="#" onclick="kategoriEkle();" data-dismiss="modal" class="btn btn-success"><i class="fa fa-check"></i> Kaydet</a>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<div aria-hidden="true" aria-labelledby="myModalLabel" role="dialog" tabindex="-1" id="kategoriGuncelle" class="modal fade" style="display: none;">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button aria-hidden="true" data-dismiss="modal" class="close" type="button">×</button>
+                <h4 class="modal-title">Kategori Güncelleme</h4>
+            </div>
+            <div class="modal-body">
+                <div id="bilgiler" class="col-md-12">
+                    <div id="kategoriDil">
+                        <ul class="nav nav-tabs">
+                            <li class="active"><a href="#tab1" data-toggle="tab">Türkçe</a></li>
+                        </ul>
+
+                    </div>
+                    <div class="tab-content panel wrapper" id="kategoriTab">
+                        <div id="tab1" class="tab-pane fade active in">
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <form class="form-horizontal" role="form">
+
+                                        <div class="form-group">
+                                            <label class="col-sm-4 control-label">Kategori Adı</label>
+                                            <div class="col-sm-8">
+                                                <input id="kategoriadi" class="form-control" placeholder="Kategori Adı" type="text">
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <label class="col-sm-4 control-label">Açıklama</label>
+                                            <div class="col-sm-8">
+                                                <input id="aciklama" class="form-control" placeholder="Açıklama" type="text">
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <label class="col-sm-4 control-label">SEO Link</label>
+
+                                            <div class="col-sm-8"><input id="seoLink" class="form-control" placeholder="Seo Link" type="text"></div>
+                                        </div>
+                                        <div class="form-group">
+                                            <label class='col-sm-4 control-label'>Durum</label>
+                                            <div class='col-sm-8'>
+                                                <select class="form-control" id="kategoriDurum">
+                                                    <option value="true">Aktif</option>
+                                                    <option value="false">Pasif</option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <a href="#" onclick="kategoriGuncelle();" data-dismiss="modal" class="btn btn-success"><i class="fa fa-check"></i> Güncelle</a>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div aria-hidden="true" aria-labelledby="myModalLabel" role="dialog" tabindex="-1" id="kategoriResimGuncelle" class="modal fade" style="display: none;">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button aria-hidden="true" data-dismiss="modal" class="close" type="button">×</button>
+                <h4 class="modal-title">Kategori Resim Güncelleme</h4>
+            </div>
+            <div class="modal-body">
+
+                <div class="form-group">
+                    <img id="kategoriResmiG" src="#" alt="" title="" data-placeholder="#" width="570" height="370">
+                </div>
+                <div class="form-group">
+                    <label for="exampleInputEmail1">Resim Seç</label>
+                    <input class="form-control" id="resimG" multiple type="file">
+                </div>
+                <a href="#" onclick="kategoriResimGuncelle();" data-dismiss="modal" class="btn btn-success"><i class="fa fa-check"></i> Güncelle</a>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script type="text/javascript">
+
+    $(document).ready(function () {
+        kategoriler();
+
+    });
+    function resimAta(re) {
+        document.getElementById("kategoriResmiG").src = "../../Content/img/categories/" + re;
+    }
+    function islem(a) {
+      
+        var sonuc ;if (a == 0) {sonuc = confirm('Seçtiğiniz Kaydı Silmek İstediğinizden Eminmisiniz?');}else {sonuc = true;}
+        if (sonuc == true) {kategoriDurumGuncelle(a);}kategoriler();
+    }
+
+</script>

@@ -1,0 +1,56 @@
+﻿@model IEnumerable<e_ticaret.Models.KategoriL>
+
+
+@{ int dil = 0;}
+<!-- Categories -->
+<section class="">
+    <div class="section-padding container-fluid bg-image text-center overlay-light90" data-background-img="img/bg/bg_5.jpg" data-bg-position-x="center center">
+        <div class="container">
+            <h2 class="page-title">Shop by Categories</h2>
+        </div>
+    </div>
+    <div class="container container-margin-minus-t">
+        <div class="row">
+            @foreach (var veri in Model)
+            {
+                dil = veri.DID;
+                <div class="col-md-4">
+
+                    <div class="categories-box">
+                        <div class="categories-image-wrap">
+                            <img src="~/Content/img/categories/@veri.Kategori.Resim" alt="@veri.Seolink" />
+                        </div>
+                        <div class="categories-content">
+                            <a href="#">
+                                <div class="categories-caption">
+                                    <h6 class="normal">@veri.Adi</h6>
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            }
+        </div>
+    </div>
+</section>
+<!-- End Categories -->
+
+@foreach (var item in ViewBag.ayarlar)
+{
+
+            <!-- Like & Share Banner -->
+    <section id="like-share" class="like-share">
+        <div class="container">
+            <div class="like-share-inner overlay-black40">
+                <h3>Like And Share Our Page for one time <span class="color">10%</span> Off</h3>
+                <ul class="social-icon">
+                    <li><a href="http://facebook.com/@item.FacebookAppID" target="_blank"><i class="fa fa-facebook" aria-hidden="true"></i></a></li>
+                    <li><a href="https://www.twitter.com/@item.TwitterApiID" target="_blank"><i class="fa fa-twitter" aria-hidden="true"></i></a></li>
+                    <li><a href="https://www.instagram.com/@item.InstagramID" target="_blank"><i class="fa fa-instagram" aria-hidden="true"></i></a></li>
+                </ul>
+            </div>
+        </div>
+    </section>
+            <!-- End Like & Share Banner -->
+
+}

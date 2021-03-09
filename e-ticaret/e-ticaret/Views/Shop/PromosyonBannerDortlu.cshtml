@@ -1,0 +1,116 @@
+﻿@model IEnumerable<e_ticaret.Models.Promosyon>
+
+@{
+    string ad1 = "", ad2 = "", ad3 = "", ad4 = "", url1 = "", url2 = "", url3 = "", url4 = "", resim1 = "", resim2 = "", resim3 = "", resim4 = "";
+    int deger = 1;
+}
+@foreach (var item in Model)
+{
+    if (deger == 1)
+    {
+        ad1 = item.Adi;
+        resim1 = item.Resim;
+        url1 = item.URL;
+    }
+    else if (deger == 2)
+    {
+        ad2 = item.Adi;
+        resim2 = item.Resim;
+        url2 = item.URL;
+    }
+    else if (deger == 3)
+    {
+        ad3 = item.Adi;
+        resim3 = item.Resim;
+        url3 = item.URL;
+    }
+    else if (deger == 4)
+    {
+        ad4 = item.Adi;
+        resim4 = item.Resim;
+        url4 = item.URL;
+    }
+    deger++;
+}
+
+<!-- Promo Banner -->
+<section id="promo-banner" class="section-padding-b">
+    <div class="container">
+        <div class="row">
+
+
+            <!--Left Side-->
+            <div class="col-md-6">
+                <div class="row">
+
+
+                    <div class="col-12 mb-30">
+                        <!-- banner No.1 -->
+                        <div class="promo-banner-wrap">
+                            <a href="@url1" class="promo-image-wrap">
+
+                                <img src="~/Content/img/banner/@resim1" alt="@ad1" />
+
+                            </a>
+
+                        </div>
+                    </div>
+
+
+
+                    <div class="col-12 mb-sm-30">
+                        <!-- banner No.2 -->
+                        <div class="promo-banner-wrap">
+
+                            <a href="@url2" class="promo-image-wrap">
+
+                                <img src="~/Content/img/banner/@resim2" alt="@ad2" />
+
+                            </a>
+                        </div>
+
+
+                    </div>
+
+                </div>
+
+            </div>
+
+            <!--Right Side-->
+            <div class="col-md-6">
+                <div class="row">
+
+                    <div class="col-12 mb-30">
+                        <!-- banner No.3 -->
+                        <div class="promo-banner-wrap">
+                            <a href="@url4" class="promo-image-wrap">
+
+                                <img src="~/Content/img/banner/@resim4" alt="@ad4" />
+
+                            </a>
+
+                        </div>
+                    </div>
+
+
+                    <div class="col-12 mb-sm-30">
+                        <!-- banner No.4 -->
+                        <div class="promo-banner-wrap">
+                            <a href="@url3" class="promo-image-wrap">
+
+                                <img src="~/Content/img/banner/@resim3" alt="@ad3" />
+
+                            </a>
+
+                        </div>
+                    </div>
+
+                </div>
+
+            </div>
+            <!-- End Promo Banner -->
+
+
+        </div>
+    </div>
+</section>

@@ -1,0 +1,186 @@
+﻿@model IEnumerable<e_ticaret.Models.KategoriL>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Root.cshtml";
+}
+
+@foreach (var item in Model)
+{
+    <!-- Bread Crumb -->
+    <section class="breadcrumb">
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <nav class="breadcrumb-link">
+                        <a href="/Shop/Index">Home</a>
+                        <a href="#">
+                            @item.Adi
+                        </a>
+                        <span>
+                            @item.Kategori.Urunlers.Count
+                        </span>
+                    </nav>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Bread Crumb -->
+    <!-- Page Content -->
+    <section class="content-page">
+        <div class="container">
+            <div class="row">
+
+                <!-- Product Content -->
+                <div class="col-md-9">
+                    <!-- Title -->
+                    <div class="list-page-title">
+                        <h2 class="">@item.Adi</h2>
+                    </div>
+                    <!-- End Title -->
+                    <!-- Product Grid -->
+                    <div class="row product-list-item">
+                        <!-- item.1 -->
+                        <!--Product Item-->
+                        @foreach (var u in item.Kategori.Urunlers)
+                        {
+
+                            foreach (var ul in u.UrunlerLs)
+                            {
+                                if (item.DID == ul.DilID)
+                                {
+                                    <div class="product-item-element col-sm-6 col-md-6 col-lg-4">
+                                        <div class="product-item">
+
+                                            <div class="product-item-inner">
+                                                <div class="product-img-wrap">
+                                                    <img src="~/Content/img/product-img/big/@ul.Resim" alt="@ul.SeoLink">
+                                                </div>
+                                                <div class="product-button">
+                                                    <a href="#" class="js_tooltip" data-mode="top" data-tip="Add To Cart"><i class="fa fa-shopping-bag"></i></a>
+                                                    <a href="#" class="js_tooltip" data-mode="top" data-tip="Add To Whishlist"><i class="fa fa-heart"></i></a>
+                                                    <a href="/Urunler/UrunDetay/@ul.SeoLink" class="js_tooltip" data-mode="top" data-tip="Quick&nbsp;View"><i class="fa fa-eye"></i></a>
+                                                </div>
+                                            </div>
+                                            <div class="product-detail">
+                                                <a class="tag" href="/Urunler/UrunDetay/@ul.SeoLink"></a>
+                                                <p class="product-title"><a href="/Urunler/UrunDetay/@ul.SeoLink">@ul.UrunAdi</a></p>
+                                                <div class="product-rating">
+                                                    <div class="star-rating" itemprop="reviewRating" itemscope="" itemtype="http://schema.org/Rating" title="Rated 4 out of 5">
+                                                        <span style="width: 60%"></span>
+                                                    </div>
+                                                    <a href="#" class="product-rating-count"><span class="count">3</span> Reviews</a>
+                                                </div>
+                                                <p class="product-description">
+                                                    @ul.Aciklama
+                                                </p>
+                                                <h5 class="item-price">@ul.Fiyat</h5>
+                                            </div>
+
+                                        </div>
+                                    </div>
+                                }
+                            }
+                        }
+                        <!-- End Product Item-->
+
+                    </div>
+                    <!-- End Product Grid -->
+
+
+
+                </div>
+                <!-- End Product Content -->
+                <!-- Sidebar -->
+                <div class="sidebar-container col-md-3">
+
+                    <!-- Categories -->
+                    <div class="widget-sidebar">
+
+                        <h6 class="widget-title">SHOP CATEGORIES</h6>
+                        <ul class="widget-content widget-product-categories jq-accordian">
+
+                            <li><a href="/Urunler/Index/@item.Seolink">@item.Adi</a></li>
+                        </ul>
+                    </div>
+
+                    <!-- Filter By Price -->
+                    @*<div class="widget-sidebar widget-price-range">
+                        <h6 class="widget-title">Filter By Price</h6>
+                        <form class="widget-content" method="get" action="#">
+                            <div class="price-range-slider"></div>
+                            <div class="price-range-amount">
+                                <input id="price_range_min" name="price_range_min" value="" data-min="140" placeholder="Min price" style="display: none;" type="text">
+                                <input id="price_range_max" name="price_range_max" value="" data-max="1100" placeholder="Max price" style="display: none;" type="text">
+                                <div id="price-range-from-to">
+                                </div>
+                            </div>
+                            <button class="btn btn-xs btn-black pull-right" type="submit">Filter</button>
+                        </form>
+                    </div>*@
+
+                    <!-- Filter By Color -->
+                    <div class="widget-sidebar widget-filter-color">
+                        <h6 class="widget-title">Filter By Color</h6>
+                        <ul class="widget-content">
+                            @foreach (var c in item.Kategori.Urunlers)
+                            {
+                                foreach (var cv in c.Renklers)
+                                {
+
+                                    <li>
+                                        <a href="#">
+                                            <div class="filter-color-switcher"><span style="background-color: @cv.RenkKodu"></span></div>
+                                            @cv.RenkAdi
+                                        </a>
+                                        <span class="color-count"></span>
+                                    </li>
+                                }
+                            }
+                        </ul>
+                    </div>
+
+                    <!-- Filter By Size -->
+                    <div class="widget-sidebar widget-filter-size">
+                        <h6 class="widget-title">Filter By Size</h6>
+                        <ul class="widget-content">
+                            @foreach (var r in item.Kategori.Urunlers)
+                            {
+                                foreach (var rv in r.Bedenlers)
+                                {
+                                    <li>
+                                        <a href="#">@rv.BedenAdi</a>
+
+                                        <span></span>
+                                    </li>
+                                }
+                            }
+
+
+                        </ul>
+                    </div>
+
+                    <!-- Filter By Tag -->
+                    <div class="widget-sidebar widget-filter-tag">
+                        <h6 class="widget-title">Popular Tag</h6>
+                        <ul class="widget-content">
+                        @foreach (var e in item.Kategori.Urunlers)
+                        {
+                            foreach (var ev in e.Etikets)
+                            {
+                                <li>
+                                    <a href="#">@ev.Adi</a>
+                                </li>
+                            }
+                        }
+
+                        </ul>
+                    </div>
+
+                </div>
+                <!-- End Sidebar -->
+
+            </div>
+        </div>
+    </section>
+    <!-- End Page Content -->
+}

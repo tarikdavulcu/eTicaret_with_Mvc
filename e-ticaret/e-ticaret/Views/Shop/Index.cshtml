@@ -1,0 +1,32 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Root.cshtml";
+}
+@{
+
+    @Html.Action("Slider", "Shop");
+    @Html.Action("PromosyonBanner", "Shop");
+    @Html.Action("PromosyonBannerDortlu", "Shop");
+    @Html.Action("UrunlerAnaSayfa", "Urunler");
+    @Html.Action("KategoriContent", "Kategori");
+}
+
+@{
+    @Html.Action("Blog", "Shop");
+}
+
+@*<section class="section-padding dark-bg container-fluid bg-image text-center overlay-black40" data-background-img="img/bg/bg_7.jpg" data-bg-position-x="center top" style="background-image: url(&quot;img/bg/bg_7.jpg&quot;); background-position: center top;">
+        <div class="container newsletter section-padding-b">
+            <h2 class="page-title">Subscribe To Newsletter</h2>
+            <form name="form-newsletter" class="newsletter-from" id="form-newsletter" method="post">
+                <div class="form-input">
+                    <input class="input-lg" name="frmemail" id="frmemail" placeholder="Enter Email Address..." title="Enter Email Address..." type="text">
+                </div>
+                <button class="btn btn-lg btn-color">Sing Up</button>
+            </form>
+            <p class="italic">Sign up For Exclusive Updates, New Arrivals And Insider-Only Discount.</p>
+        </div>
+    </section>*@
+
+

@@ -1,0 +1,132 @@
+﻿<div class="ui-content-body">
+    <div class="ui-container">
+        <!--page title and breadcrumb start -->
+        <div class="row">
+            <div class="col-md-8">
+                <h1 class="page-title">
+                    Promasyon Ürünleri
+                </h1>
+            </div>
+            <div class="col-md-4">
+                <ul class="breadcrumb pull-right">
+                    <!--<a href="#" onclick="markaSil();" class="btn btn-danger"><i class="fa fa-trash-o"></i></a>-->
+                </ul>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12">
+                <div class="panel">
+                    <div class="panel-body">
+                        <div class="panel panel-default">
+                            <div class="panel-heading">
+                                <h3 class="panel-title"><i class="fa fa-list"></i> Promasyon LİSTESİ</h3>
+                            </div>
+                            <div class="panel-body">
+                                <div class="table-responsive">
+                                    <table class='table table-bordered table-hover'>
+                                        <thead>
+                                            <tr>
+                                                <td style="width: 1px;" class="text-center"><input type="checkbox" onclick="$('input[name*=\'chk\']').prop('checked', this.checked);"></td>
+                                                <td class="text-center">Resim</td>
+                                                <td class="text-left"> <a href="#" class="asc">Promasyon Adı</a> </td>
+                                                <td class="text-left"> <a href="#">Durum</a> </td>
+                                                <td class="text-right">İşlemler</td>
+                                            </tr>
+                                        </thead>
+                                        <tbody id="tabloPromasyon">
+                                            <tr>
+                                                <td class="text-center">
+                                                    <input type="checkbox" name="selected[]" value="42">
+                                                </td>
+                                                <td class="text-center"> <img src="https://demo.opencart.com/image/cache/catalog/demo/apple_cinema_30-40x40.jpg" alt="Apple Cinema 30&quot;" class="img-thumbnail"> </td>
+                                                <td class="text-left">Apple Cinema 30"</td>
+                                                <td class="text-left">Enabled</td>
+                                                <td class="text-right"><a href="#" data-toggle="tooltip" title="" class="btn btn-primary" data-original-title="Edit"><i class="fa fa-pencil"></i></a></td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<div aria-hidden="true" aria-labelledby="myModalLabel" role="dialog" tabindex="-1" id="markaEkleme" class="modal fade" style="display: none;">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button aria-hidden="true" data-dismiss="modal" class="close" type="button">×</button>
+                <h4 class="modal-title">Yeni Marka Ekleme</h4>
+            </div>
+            <div class="modal-body">
+                <div class="form-group">
+                    <label for="exampleInputEmail1">Marka Adı</label>
+                    <input class="form-control" id="markaAdi" placeholder="Kategori Adı" type="text">
+                </div>
+                <div class="form-group">
+                    <label for="exampleInputEmail1">Marka Resmi</label>
+                    <input class="form-control" id="resim" multiple type="file">
+                </div>
+                <div class="form-group">
+                    <label for="exampleInputEmail1">Sırlama</label>
+                    <input class="form-control" id="siralama" placeholder="0" value="0" type="text">
+                </div>
+                <a href="#" onclick="markaEkle();" data-dismiss="modal" class="btn btn-success"><i class="fa fa-check"></i> Kaydet</a>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<div aria-hidden="true" aria-labelledby="myModalLabel" role="dialog" tabindex="-1" id="promasyonDuzenle" class="modal fade" style="display: none;">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button aria-hidden="true" data-dismiss="modal" class="close" type="button">×</button>
+                <h4 class="modal-title">Promasyon Bilgi Güncelleme</h4>
+            </div>
+            <div class="modal-body">
+                <div class="form-group">
+                    <label for="exampleInputEmail1">Promasyon Adı</label>
+                    <input class="form-control" id="promasyonAdi" placeholder="Promasyon Adı" type="text">
+                </div>
+                <div class="form-group">
+                    <img id="promasyonResmi" src="#" alt="" style='width: 99%; ' title="" data-placeholder="#">
+
+                </div>
+                <div class="form-group">
+                    <label for="exampleInputEmail1">Resim Düzenle</label>
+                    <input class="form-control" id="resimG" multiple type="file">
+                </div>
+                <div class="form-group">
+                    <label for="exampleInputEmail1">Yönlendirme Adresi</label>
+                    <input class="form-control" id="url" placeholder="Yönlendirme Adresi" type="text">
+                </div>
+                <div class="form-group">
+                    <label for="exampleInputEmail1">Durum</label>
+                    <select class="form-control" id="promasyonDurum">
+                        <option value="true">Aktif</option>
+                        <option value="false">Pasif</option>
+                    </select>
+                </div>
+                <a href="#" onclick="promasyonGuncelle();" data-dismiss="modal" class="btn btn-success"><i class="fa fa-check"></i> Güncelle</a>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<script type="text/javascript">
+
+    $(document).ready(function () {
+        promasyonlar();
+
+    });
+
+
+</script>

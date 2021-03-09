@@ -1,0 +1,338 @@
+﻿@model IEnumerable<e_ticaret.Models.UrunlerL>
+@{
+    ViewBag.Title = "Detay";
+    Layout = "~/Views/Shared/_Root.cshtml";
+}
+
+@foreach (var veri in Model)
+{
+    string ak = "0";
+    foreach (var ayar in veri.Dil.Ayarlars)
+    {
+        if (veri.DilID == ayar.DilID)
+        {
+            if (ayar.SatisAktif == true)
+            {
+                ak = "1";
+            }
+        }
+    }
+
+    <!-- Bread Crumb -->
+    <section class="breadcrumb">
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <nav class="breadcrumb-link">
+                        <a href="/Shop/Index">Home</a>
+
+
+
+                        @foreach (var kat in veri.Urunler.Kategori.KategoriLs)
+                        {
+                            if (kat.DID == veri.DilID)
+                            {
+                                <a href="/Urunler/Index/@kat.Seolink">
+                                    @kat.Adi
+                                </a>
+                            }
+                        }
+
+                        <span>
+                            @veri.UrunAdi
+
+                        </span>
+                    </nav>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Bread Crumb -->
+    <!-- Page Content -->
+        <section id="product-ID_XXXX" class="content-page single-product-content">
+
+            <!-- Product -->
+            <div id="product-detail" class="container">
+                <div class="row">
+                    <!-- Product Image -->
+                    <div class="col-lg-6 col-md-6 col-sm-12 mb-30">
+                        <div class="product-page-image">
+                            <!-- Slick Image Slider -->
+                            <div class="product-image-slider product-image-gallery" id="product-image-gallery" data-pswp-uid="3">
+
+                                @foreach (var item in veri.Urunler.UrunResimleris)
+                                {
+                                    <div class="item">
+                                        <a class="product-gallery-item" href="~/Content/img/product-img/single/@item.Resim" data-size="" data-med="/Content/img/product-img/single/@item.Resim" data-med-size="">
+                                            <img src="/Content/img/product-img/single/@item.Resim" alt="@item.Resim" />
+                                        </a>
+                                    </div>
+
+                                }
+                            </div>
+                            <!-- End Slick Image Slider -->
+
+                            <a href="javascript:void(0)" id="zoom-images-button" class="zoom-images-button"><i class="fa fa-expand" aria-hidden="true"></i></a>
+
+
+                        </div>
+
+                        <!-- Slick Thumb Slider -->
+                        <div class="product-image-slider-thumbnails">
+                            @foreach (var item in veri.Urunler.UrunResimleris)
+                            {
+
+                                <div class="item">
+                                    <img src="/Content/img/product-img/single/@item.Resim" alt="image 1" />
+                                </div>
+                            }
+                        </div>
+                        <!-- End Slick Thumb Slider -->
+                    </div>
+                    <!-- End Product Image -->
+                    <!-- Product Content -->
+
+
+                    <div class="col-lg-6 col-md-6 col-sm-12 mb-30">
+                        <div class="product-page-content">
+                            <h2 class="product-title">@veri.UrunAdi</h2>
+                            <form>
+                                <div class="product-rating">
+                                    <div class="star-rating" itemprop="reviewRating" itemscope="" itemtype="http://schema.org/Rating" title="Rated 4 out of 5">
+                                        <span style="width: 60%"></span>
+                                    </div>
+                                    <a href="#" class="product-rating-count"><span class="count">3</span> Reviews</a>
+                                </div>
+                                <div class="product-price">
+                                    <input type="hidden" id="uid" value="@veri.UrunID" />
+                                    <input type="hidden" id="fiyat" value="@veri.Fiyat" />
+                                    @*<del>499.00</del>*@<span><span class="product-price-text">@veri.Fiyat</span><span class="product-price-sign">TL </span></span>
+                                </div>
+                                <p class="product-description">
+                                    @Html.Raw(veri.Aciklama)
+                                </p>
+                                <div class="row product-filters">
+                                    @{
+                                        int renkSayi = 1;
+                                        foreach (var renk in veri.Urunler.Renklers)
+                                        {
+                                            <div class="col-md-6 filters-color">
+                                                <label for="select-color">Select Color</label>
+
+
+                                                <div class="color-selector">
+                                                    @if (renkSayi == 1)
+                                                    {
+                                                    <div class="entry active" onclick="document.getElementById('renk').value='@renk.RenkAdi'" style="background: @renk.RenkKodu;">&nbsp;</div>
+                                                    }
+                                                    else
+                                                    {
+                                                    <div class="entry" onclick="document.getElementById('renk').value'='@renk.RenkAdi'" style="background:  @renk.RenkKodu;">&nbsp;</div>
+
+                                                    }
+                                                    renkSayi++;
+                                                </div>
+                                            </div>
+                                        }
+                                    }
+                                    @{
+                                        int sayi = 1;
+                                        foreach (var beden in veri.Urunler.Bedenlers)
+                                        {
+                                            <div class="col-md-6 filters-size">
+                                                <label for="select-size">Select Size</label>
+
+                                                <div class="size-selector">
+                                                    @if (sayi == 1)
+                                                    {
+
+                                                    <div class="entry active" onclick="document.getElementById('beden').value='@beden.BedenAdi'">@beden.BedenAdi</div>
+                                                    }
+                                                    else
+                                                    {
+
+                                                    <div class="entry" onclick="document.getElementById('beden').value='@beden.BedenAdi'">@beden.BedenAdi</div>
+                                                    }
+                                                    sayi++;
+                                                </div>
+                                            </div>
+                                        }
+
+                                    }
+                                </div>
+
+
+
+                                <div class="single-variation-wrap">
+                                    @if (ak == "1")
+                                    {
+                                        <div class="product-quantity">
+                                            <span data-value="+" class="quantity-btn quantityPlus"></span>
+                                            <input class="quantity input-lg" step="1" min="1" max="9" name="quantity" id="adet" value="1" title="Quantity" type="number" />
+                                            <span data-value="-" class="quantity-btn quantityMinus"></span>
+                                        </div>
+                                    }
+                                    <input type="hidden" id="beden" value="Belirtilmemiş" />
+                                    <input type="hidden" id="renk" value="Belirtilmemiş" />
+
+                                    @if (ak == "1")
+                                    {
+                                        <button type="button" onclick="ekle();" class="btn btn-lg btn-black"><i class="fa fa-shopping-bag" aria-hidden="true"></i>Add to cart</button>
+                                    }
+
+                                </div>
+                            </form>
+                            @if (ak == "1")
+                            {
+                                <div class="single-add-to-wrap">
+                                    <a class="single-add-to-wishlist"><i class="fa fa-heart left" aria-hidden="true"></i><span>Add to Wishlist</span></a>
+                                </div>
+
+                            }
+
+                            <div class="product-meta">
+                                <span>SKU : <span class="sku" itemprop="sku">@veri.Urunler.UrunKodu</span></span>
+                                <span>
+                                    Category : <span class="category" itemprop="category">
+                                        @foreach (var kat in veri.Urunler.Kategori.KategoriLs)
+                                        {
+                                            if (veri.DilID == kat.DID)
+                                            {
+                                    @kat.Adi;
+                                            }
+                                        }
+                                    </span>
+                                </span>
+                            </div>
+                            <div class="product-share">
+                                <span>Share :</span>
+
+                                <ul>
+                                    @foreach (var item in veri.Dil.Ayarlars)
+                                    {
+                                        if (veri.DilID == item.DilID)
+                                        {
+
+                                            <li><a href="https://www.facebook.com/@item.FacebookAppID" target="_blank"><i class="fa fa-facebook"></i></a></li>
+                                            <li><a href="http://twitter.com/@item.TwitterApiID" target="_blank"><i class="fa fa-twitter"></i></a></li>
+                                        }
+                                    }
+
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
+
+
+
+                </div>
+            </div>
+            <!-- End Product -->
+            <!-- Product Content Tab -->
+            <div class="product-tabs-wrapper container">
+                <ul class="product-content-tabs nav nav-tabs" role="tablist">
+
+                    <li class="nav-item">
+                        <a class="active" href="#tab_description" role="tab" data-toggle="tab">Descriptiont</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="" href="#tab_additional_information" role="tab" data-toggle="tab">Additional Information</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="" href="#tab_reviews" role="tab" data-toggle="tab">Reviews (<span>3</span>)</a>
+                    </li>
+
+                </ul>
+                <div class="product-content-Tabs_wraper tab-content container">
+                    <div id="tab_description" role="tabpanel" class="tab-pane fade in active">
+                        <!-- Accordian Title -->
+                        <h6 class="product-collapse-title" data-toggle="collapse" data-target="#tab_description-coll">Description</h6>
+                        <!-- End Accordian Title -->
+                        <!-- Accordian Content -->
+                        <div id="tab_description-coll" class="shop_description product-collapse collapse container">
+                            <div class="row">
+                                <div class="col-md-6">
+                                    @Html.Raw(veri.TeknikAciklama)
+                                </div>
+                                <div class="col-md-6">
+                                    @Html.Raw(veri.TeknikAciklamaDevam)
+                                </div>
+                               
+                            </div>
+                        </div>
+                        <!-- End Accordian Content -->
+                    </div>
+
+                    <div id="tab_additional_information" role="tabpanel" class="tab-pane fade">
+                        <!-- Accordian Title -->
+                        <h6 class="product-collapse-title" data-toggle="collapse" data-target="#tab_additional_information-coll">Additional Information</h6>
+                        <!-- End Accordian Title -->
+                        <!-- Accordian Content -->
+                        <div id="tab_additional_information-coll" class="container product-collapse collapse">
+
+                           @Html.Raw(veri.TeknikDetay)
+
+                        </div>
+                        <!-- End Accordian Content -->
+                    </div>
+                    <div id="tab_reviews" role="tabpanel" class="tab-pane fade">
+                        <!-- Accordian Title -->
+                        <h6 class="product-collapse-title" data-toggle="collapse" data-target="#tab_reviews-coll">Reviews (@veri.Urunler.Urun_Yorumlari.Count)</h6>
+                        <!-- End Accordian Title -->
+                        <!-- Accordian Content -->
+                        <div id="tab_reviews-coll" class=" product-collapse collapse container">
+                            <div class="row">
+                                <div class="review-form-wrapper col-md-6">
+                                    <h6 class="review-title">Add a Review </h6>
+                                    <form class="comment-form">
+                                        <div class="form-field-wrapper">
+                                            <label>Your Review <span class="required">*</span></label>
+                                            <textarea id="comment" class="form-full-width" name="comment" cols="45" rows="8" aria-required="true" required=""></textarea>
+                                        </div>
+                                        <div class="form-field-wrapper">
+                                            <label>Name <span class="required">*</span></label>
+                                            <input id="author" class="input-md form-full-width" name="author" value="" size="30" aria-required="true" required="" type="text">
+                                        </div>
+                                        <div class="form-field-wrapper">
+                                            <label>Email <span class="required">*</span></label>
+                                            <input id="email" class="input-md form-full-width" name="email" value="" size="30" aria-required="true" required="" type="email">
+                                        </div>
+                                        <div class="form-field-wrapper">
+                                            <input name="submit" id="submit" class="submit btn btn-md btn-color" value="Submit" type="submit">
+                                        </div>
+                                    </form>
+                                </div>
+                                <div class="comments col-md-6">
+                                    <h6 class="review-title">Customer Reviews</h6>
+                                    <!--<p class="review-blank">There are no reviews yet.</p>-->
+                                    <ul class="commentlist">
+                                        @foreach (var yorum in veri.Urunler.Urun_Yorumlari)
+                                        {
+                                            <li id="comment-101" class="comment-101">
+                                                <img src="~/Content/img/avatar.jpg" class="avatar" alt="author" />
+                                                <div class="comment-text">
+                                                    <p class="meta">
+                                                        <strong itemprop="author">@yorum.YorumuYazan</strong>
+                                                        &nbsp;&mdash;&nbsp;
+                                                        <time itemprop="datePublished" datetime="">@yorum.Tarih</time>
+                                                    </p>
+                                                    <div class="description" itemprop="description">
+                                                        <p>@yorum.Yorum</p>
+                                                    </div>
+                                                </div>
+                                            </li>
+                                        }
+
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- End Accordian Content -->
+                    </div>
+                </div>
+            </div>
+            <!-- End Product Content Tab -->
+        </section>
+    <!-- End Page Content -->
+}

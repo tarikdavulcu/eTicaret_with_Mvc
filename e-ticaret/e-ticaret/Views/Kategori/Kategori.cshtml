@@ -1,0 +1,16 @@
+﻿@{
+    Layout = null;
+}
+@model IEnumerable<e_ticaret.Models.KategoriL>
+<nav class="navigation-menu">
+    <ul>
+        @foreach (var item in Model)
+        {
+
+            <li>
+                <a href="/Urunler/Index/@item.Seolink">@item.Adi</a>
+            </li>
+        }
+        
+    </ul>
+</nav>

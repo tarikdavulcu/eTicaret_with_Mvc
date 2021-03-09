@@ -1,0 +1,172 @@
+﻿<div class="ui-content-body">
+
+    <div class="ui-container">
+        <div class="row">
+            <div class="col-md-8">
+                <h1 class="page-title">
+                    Ürünler
+                    <small>Ürün Listesi</small>
+                </h1>
+            </div>
+            <div class="col-md-4">
+                <ul class="breadcrumb pull-right">
+                    <a href="javascript:void(0);" onclick="dosyaOku('../Admin/documan/urunekleme.html');" class="btn btn-info"><i class="fa fa-plus"></i></a>
+                    <!--<a href="#urunekleme" data-toggle='modal' class="btn btn-info"><i class="fa fa-plus"></i></a>-->
+                    <a href="#" class="btn btn-default"><i class="fa fa-copy"></i></a>
+                    <a href="#" class="btn btn-danger"><i class="fa fa-trash-o"></i></a>
+                </ul>
+            </div>
+        </div>
+        <div class="row">
+
+            <div class="col-md-12">
+                <div class="panel">
+                    <div class="panel-body">
+                        <div class="row">
+                            <div class="col-md-12">
+                                <form class="row order-srch-form" role="form">
+                                    <div class="form-group col-md-3">
+                                        <label class="sr-only">Kategoriler</label>
+                                        <select class="form-control" id="kategorilerUst">
+                                            <option>Category</option>
+                                            <option>Category one</option>
+                                            <option>Category two</option>
+                                            <option>Category three</option>
+                                            <option>Category four</option>
+                                        </select>
+                                    </div>
+
+                                    <div class="col-md-2">
+                                        <a onclick="urunlerKategori();" class="btn btn-info"><i class="fa fa-check"></i> Ürünleri Listele</a>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-12">
+                <div class="panel">
+                    <div id="tabloKat" class="panel-body">
+                        <div class="panel panel-default">
+                            <div class="panel-heading">
+                                <h3 class="panel-title"><i class="fa fa-list"></i> Ürün LİSTESİ</h3>
+                            </div>
+                            <div class="panel-body">
+                                <div class="table-responsive" >
+                                    <table class='table table-bordered table-hover'>
+                                        <thead>
+                                            <tr>
+                                                <td style="width: 1px;" class="text-center"><input type="checkbox" onclick="$('input[name*=\'chk\']').prop('checked', this.checked);"></td>
+                                                <td class="text-center">Resim</td>
+                                                <td class="text-left"> <a href="#" class="asc">Ürün Adı</a> </td>
+                                                <td class="text-left"> <a href="#">Model</a> </td>
+                                                <td class="text-right"> <a href="#">Fiyat</a> </td>
+                                                <td class="text-left"> <a href="#">Durum</a> </td>
+                                                <td class="text-right">İşlemler</td>
+                                            </tr>
+                                        </thead>
+                                        <tbody id="tabloUrunler">
+                                            <!--<tr>
+                                                <td class="text-center">
+                                                    <input type="checkbox" name="selected[]" value="42">
+                                                </td>
+                                                <td class="text-center"> <img src="https://demo.opencart.com/image/cache/catalog/demo/apple_cinema_30-40x40.jpg" alt="Apple Cinema 30&quot;" class="img-thumbnail"> </td>
+                                                <td class="text-left">Apple Cinema 30"</td>
+                                                <td class="text-left">Product 15</td>
+                                                <td class='text-right'> <span class='label label-success'">990</span> </td>
+                                                <td class="text-left">Enabled</td>
+                                                <td class="text-right"><a href="#" data-toggle="tooltip" title="" class="btn btn-primary" data-original-title="Edit"><i class="fa fa-pencil"></i></a></td>
+                                            </tr>-->
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+
+
+</div>
+
+
+<div aria-hidden="true" aria-labelledby="myModalLabel" role="dialog" tabindex="-1" id="urunekleme" class="modal fade" style="display: none;">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button aria-hidden="true" data-dismiss="modal" class="close" type="button">×</button>
+                <h4 class="modal-title">Yeni Ürün Ekleme</h4>
+            </div>
+            <div class="modal-body">
+
+                <div class="form-group">
+                    <label for="exampleInputEmail1">Ürün Kategori</label>
+                    <select class="form-control" id="kategori">
+                        <option>Kategori Seç</option>
+                        <option>Kategori 1</option>
+                        <option>Kategori 2</option>
+                        <option>Kategori 3</option>
+                        <option>Kategori 4</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="exampleInputEmail1">Ürün Adı <span class="text-danger"> * </span></label>
+                    <input class="form-control" placeholder="Ürün Adi" id="urunAdi" type="text">
+                </div>
+                <div class="form-group">
+                    <label for="exampleInputEmail1">Ürün Açıklaması <span class="text-danger"> * </span></label>
+                    <textarea name="" class="form-control" cols="30" rows="2" id="urunAciklamasi"></textarea>
+                </div>
+                <div class="form-group">
+                    <label for="exampleInputEmail1">Ürün Özellikleri <span class="text-danger"> * </span></label>
+                    <textarea name="" class="form-control" cols="30" rows="2" id="urunOzellik"></textarea>
+                </div>
+                <div class="form-group">
+                    <label for="exampleInputEmail1">Ürün Detayı <span class="text-danger"> * </span></label>
+                    <textarea name="" class="form-control" cols="30" rows="2" id="urunDetayi"></textarea>
+                </div>
+                <div class="form-group">
+                    <label for="exampleInputEmail1">Ürün Kodu <span class="text-danger"> * </span></label>
+                    <input class="form-control" placeholder="Urun Kodu" id="urunKodu" type="text">
+                </div>
+                <div class="form-group">
+                    <label for="exampleInputEmail1">SEO Açıklaması <span class="text-danger"> * </span></label>
+                    <input class="form-control" placeholder="SEO link Açıklaması" id="seo" type="text">
+                </div>
+                <div class="form-group">
+                    <label for="exampleInputEmail1">Meta Title <span class="text-danger"> * </span></label>
+                    <input class="form-control" placeholder="Max 100 Karakter" type="text" id="metatitle">
+                </div>
+                <div class="form-group">
+                    <label for="exampleInputEmail1">Meta Keywords </label>
+                    <textarea name="" class="form-control" cols="30" rows="2" placeholder="Max 100 Karakter" id="metakeywords"></textarea>
+                </div>
+                <div class="form-group">
+                    <label for="exampleInputEmail1">Meta Descriptin</label>
+                    <textarea name="" class="form-control" cols="30" rows="2" placeholder="Max 250 Karakter" id="metadescription"></textarea>
+                </div>
+
+                <a href="#" onclick="urunEkle();" data-dismiss="modal" class="btn btn-success"><i class="fa fa-check"></i> Kaydet</a>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+<script type="text/javascript">
+
+    $(document).ready(function () {
+        urunKategorileri();
+        urunler();
+    });
+
+
+
+</script>

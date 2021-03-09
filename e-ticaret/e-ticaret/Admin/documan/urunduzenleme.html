@@ -1,0 +1,535 @@
+﻿<div class="ui-content-body">
+    <div class="ui-container">
+        <!--page title and breadcrumb start -->
+        <div class="row">
+            <div class="col-md-8">
+                <h1 class="page-title">
+                    Ürün Düzenleme
+                    <small>Ürün Detayları</small>
+                </h1>
+            </div>
+            <div class="col-md-4">
+                <ul class="breadcrumb pull-right">
+                    <a href='javascript:void(0);' onclick='urunGuncelle();' class="btn btn-success"><i class="fa fa-save"></i></a>
+                    <a href="javascript:void(0);" onclick="dosyaOku('../Admin/documan/urunler.html');" class=" btn btn-default"><i class="fa fa-reply"></i></a>
+                </ul>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-12">
+                <div class="panel panel-default">
+                    <header class="panel-heading panel-border">
+                        <i class="fa fa-pencil"></i>
+                        Ürün Bİlgİlerİ
+                    </header>
+                    <div class="panel-body">
+                        <div class="col-md-12">
+
+                            <ul class="nav nav-tabs">
+                                <li class="active"><a href="#tab1" data-toggle="tab">Genel</a></li>
+                                <li><a href="#tab2"  data-toggle="tab">Bilgiler</a></li>
+                                <li><a href="#tab3" onclick='urunResimleri();' data-toggle="tab">Resim</a></li>
+                                <li><a href="#tab4" onclick='bedenler();'  data-toggle="tab">Beden</a></li>
+                                <li><a href="#tab5" onclick='renkler();'  data-toggle="tab">Renk</a></li>
+                                <li><a href="#tab6" onclick='etiketler();' data-toggle="tab">Etiketler</a></li>
+                                <li><a href="#tab7" onclick='digerBilgiler();' data-toggle="tab">Teknik Detaylar</a></li>
+                            </ul>
+
+                            <div class="tab-content panel wrapper">
+
+
+                                <div id="tab1" class="tab-pane fade active in">
+                                    <div class="row">
+                                        <div class="col-md-12" >
+                                            <ul class="nav nav-tabs">
+                                                <li class="active"><a href="#tabDil" data-toggle="tab">Türkçe</a></li>
+                                            </ul>
+
+                                            <div class="tab-content panel wrapper">
+                                                <div id="tabDil" class="tab-pane fade active in">
+                                                    <div class="row">
+                                                        <div class="col-md-12">
+                                                            <form class="form-horizontal" role="form">
+
+                                                                <div class="form-group">
+                                                                    <label class="col-sm-2 control-label">Ürün Adı <span class="text-danger"> * </span></label>
+                                                                    <div class="col-sm-10">
+                                                                        <input class="form-control" placeholder="Ürün Adi" id="urunAdi" type="text">
+                                                                    </div>
+                                                                </div>
+
+                                                                <div class="form-group">
+                                                                    <label class="col-sm-2 control-label">Ürün Açıklama <span class="text-danger"> * </span></label>
+                                                                    <div class="col-sm-10">
+                                                                        <div id="summernote"></div>
+                                                                    </div>
+                                                                </div>
+
+                                                                <div class="form-group">
+                                                                    <label class="col-sm-2 control-label">Ürün Fiyatı <span class="text-danger"> * </span></label>
+                                                                    <div class="col-sm-10">
+                                                                        <input class="form-control" placeholder="Ürün Fiyatı" id="urunFiyati" type="text">
+                                                                    </div>
+                                                                </div>
+
+                                                                <div class="form-group">
+                                                                    <label class="col-sm-2 control-label">KDV<span class="text-danger"></span></label>
+                                                                    <div class="col-sm-2">
+                                                                        <input class="form-control" placeholder="KDV" id="kdv" type="text">
+                                                                    </div>
+                                                                </div>
+
+                                                                <div class="form-group">
+                                                                    <label class="col-sm-2 control-label">SEO <span class="text-danger"> * </span></label>
+                                                                    <div class="col-sm-10">
+                                                                        <input class="form-control" placeholder="SEO" id="seo" type="text">
+                                                                    </div>
+                                                                </div>
+
+                                                                <div class="form-group">
+                                                                    <label class="col-sm-2 control-label">Ürün Sırası <span class="text-danger"> * </span></label>
+                                                                    <div class="col-sm-2">
+                                                                        <input class="form-control" placeholder="Ürün Sırası" id="urunSirasi" type="text">
+                                                                    </div>
+                                                                </div>
+
+                                                                <div class="form-group">
+                                                                    <label class="col-sm-2 control-label">Meta Tag Title<span class="text-danger"> * </span></label>
+                                                                    <div class="col-sm-10">
+                                                                        <textarea name="Meta Title" rows="5" placeholder="Meta Tag Title" id="metaTitle" class="form-control"></textarea>
+                                                                    </div>
+                                                                </div>
+
+                                                                <div class="form-group">
+                                                                    <label class="col-sm-2 control-label">Meta Tag Description<span class="text-danger"></span></label>
+                                                                    <div class="col-sm-10">
+                                                                        <textarea name="Meta Description" rows="5" placeholder="Meta Tag Description" id="metaDesc" class="form-control"></textarea>
+                                                                    </div>
+                                                                </div>
+
+                                                                <div class="form-group">
+                                                                    <label class="col-sm-2 control-label">Meta Tag Keywords<span class="text-danger"></span></label>
+                                                                    <div class="col-sm-10">
+                                                                        <textarea name="Meta Key" rows="5" placeholder="Meta Tag Keywords" id="metaKey" class="form-control"></textarea>
+                                                                    </div>
+                                                                </div>
+
+                                                                <div class="form-group">
+                                                                    <label class="col-sm-2 control-label">Sıralama<span class="text-danger"></span></label>
+                                                                    <div class="col-sm-8">
+                                                                        <input class="form-control" placeholder="0" id="siraNo" type="text">
+                                                                    </div>
+                                                                </div>
+                                                            </form>
+                                                        </div>
+                                                    </div>
+                                                </div>
+
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div id="tab2" class="tab-pane fade">
+                                    <div class="row">
+                                        <form class="form-horizontal" role="form">
+
+                                            <div class="form-group">
+                                                <label class="col-sm-2 control-label">Ürün Kategori</label>
+                                                <div class="col-sm-8">
+                                                    <select class="form-control" id="kategori"></select>
+                                                </div>
+                                            </div>
+
+                                            <div class="form-group">
+                                                <label class="col-sm-2 control-label">Marka<span class="text-danger"> * </span></label>
+                                                <div class="col-sm-8">
+                                                    <select class="form-control" id="markalar"></select>
+                                                </div>
+                                            </div>
+
+                                            <div class="form-group">
+                                                <label class="col-sm-2 control-label">Model<span class="text-danger"> * </span></label>
+                                                <div class="col-sm-8">
+                                                    <input class="form-control" placeholder="Model" id="modelAdi" type="text">
+                                                </div>
+                                            </div>
+
+                                            <div class="form-group">
+                                                <label class="col-sm-2 control-label">SKU<span class="text-danger"></span></label>
+                                                <div class="col-sm-8">
+                                                    <input class="form-control" placeholder="Stok Kodu" id="sku" type="text">
+                                                </div>
+                                            </div>
+
+                                            <div class="form-group">
+                                                <label class="col-sm-2 control-label">Barkod<span class="text-danger"></span></label>
+                                                <div class="col-sm-8">
+                                                    <input class="form-control" placeholder="Ürün Barkod" id="barkod" type="text">
+                                                </div>
+                                            </div>
+
+                                            <div class="form-group">
+                                                <label class="col-sm-2 control-label">Durum<span class="text-danger"></span></label>
+                                                <div class="col-sm-2">
+                                                    <select class="form-control" id="durum">
+                                                        <option value="true">Aktif</option>
+                                                        <option value="false">Pasif</option>
+                                                    </select>
+                                                </div>
+                                            </div>
+                                        </form>
+                                    </div>
+                                </div>
+
+                                <div id="tab3" class="tab-pane fade">
+                                    <div class="row">
+                                        <form class="form-horizontal" role="form">
+                                            <div class="col-sm-12">
+                                                <div class="tab-pane active" id="tab-image">
+
+                                                    <div class="table-responsive">
+                                                        <table id="images" class="table table-striped table-bordered table-hover">
+                                                            <thead>
+                                                                <tr>
+                                                                    <td class="text-left">Yüklenen Resim</td>
+                                                                    <td class="text-right">Listeleme Sırası</td>
+                                                                    <td></td>
+                                                                </tr>
+                                                            </thead>
+                                                            <tbody id="urunResimleri">
+                                                                <tr id="image-row0">
+                                                                    <td class="text-left"><a href="" id="thumb-image0" data-toggle="image" class="img-thumbnail"><img src="#" alt="" title="" data-placeholder="#"></a></td>
+                                                                    <td class="text-right"><input type="text" name="resimSiralama" value="0" placeholder="Sort Order" class="form-control"></td>
+                                                                    <td class="text-left"><button type="button" onclick="resimSil();" data-toggle="tooltip" title="" class="btn btn-danger" data-original-title="Remove"><i class="fa fa-minus-circle"></i></button></td>
+                                                                </tr>
+                                                            </tbody>
+                                                            <tfoot>
+                                                                <tr>
+                                                                    <td colspan="2"></td>
+                                                                    <td class="text-left">
+                                                                        <span class="btn btn-success fileinput-button">
+                                                                            <i class="fa fa-plus-circle"></i>
+                                                                            <span>Resim Ekle..</span>
+                                                                            <input id="resim" type="file" name="resim" multiple>
+                                                                        </span>
+                                                                    </td>
+                                                                </tr>
+                                                            </tfoot>
+                                                        </table>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </form>
+                                    </div>
+                                </div>
+
+                                <div id="tab4" class="tab-pane fade">
+
+                                    <div class="row">
+                                        <div class="col-md-8">
+                                        </div>
+                                        <div class="col-md-4">
+                                            <ul class="breadcrumb pull-right">
+                                                <a href="#bedenEkleme" data-toggle="modal" class="btn btn-success"><i class="fa fa-plus-circle"></i><span> Beden Ekle..</span></a>
+
+                                            </ul>
+                                        </div>
+                                    </div>
+
+                                    <div class="row">
+                                        <div class="col-md-12">
+                                            <div class="panel panel-default">
+                                                <div class="table-responsive">
+                                                    <table class='table table-bordered table-hover'>
+                                                        <thead>
+                                                            <tr>
+                                                                <td class="text-left">Beden Adı</td>
+                                                                <td class="text-right">Durum </td>
+                                                                <td class="text-right">İşlemler</td>
+                                                            </tr>
+                                                        </thead>
+                                                        <tbody id="tabloBedenler">
+                                                            <tr>
+                                                                <td class="text-left">M</td>
+                                                                <td class='text-right'> Aktif</td>
+                                                                <td class="text-right"><button type="button" onclick="resimSil();" data-toggle="tooltip" title="" class="btn btn-danger" data-original-title="Remove"><i class="fa fa-minus-circle"></i></button></td>
+                                                            </tr>
+                                                        </tbody>
+                                                    </table>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div id="tab5" class="tab-pane fade">
+
+                                    <div class="row">
+                                        <div class="col-md-8">
+                                        </div>
+                                        <div class="col-md-4">
+                                            <ul class="breadcrumb pull-right">
+                                                <a href="#renkEkleme" data-toggle="modal" class="btn btn-success"><i class="fa fa-plus-circle"></i><span> Renk Ekle..</span></a>
+
+                                            </ul>
+                                            </ul>
+                                        </div>
+                                    </div>
+
+                                    <div class="row">
+                                        <div class="col-md-12">
+                                            <div class="panel panel-default">
+                                                <div class="table-responsive">
+                                                    <table class='table table-bordered table-hover'>
+                                                        <thead>
+                                                            <tr>
+                                                                <td class="text-left">Renk Adı</td>
+                                                                <td class="text-right">Renk Kodu </td>
+                                                                <td class="text-right">Durum </td>
+                                                                <td class="text-right">İşlemler</td>
+                                                            </tr>
+                                                        </thead>
+                                                        <tbody id="tabloRenkler">
+                                                            <tr>
+                                                                <td class="text-left">Kırmızı</td>
+                                                                <td class='text-right'> FFFFFF</td>
+                                                                <td class='text-right'> Aktif</td>
+                                                                <td class="text-right"><button type="button" onclick="resimSil();" data-toggle="tooltip" title="" class="btn btn-danger" data-original-title="Remove"><i class="fa fa-minus-circle"></i></button></td>
+                                                            </tr>
+                                                        </tbody>
+                                                    </table>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div id="tab6" class="tab-pane fade">
+
+                                    <div class="row">
+                                        <div class="col-md-8">
+                                        </div>
+                                        <div class="col-md-4">
+                                            <ul class="breadcrumb pull-right">
+                                                <a href="#etiketEkleme" data-toggle="modal" class="btn btn-success"><i class="fa fa-plus-circle"></i><span> Etiket Ekle..</span></a>
+
+                                            </ul>
+                                        </div>
+                                    </div>
+
+                                    <div class="row">
+                                        <div class="col-md-12">
+                                            <div class="panel panel-default">
+                                                <div class="table-responsive">
+                                                    <table class='table table-bordered table-hover'>
+                                                        <thead>
+                                                            <tr>
+                                                                <td class="text-left">Etiket</td>
+                                                                <td class="text-right">İşlemler</td>
+                                                            </tr>
+                                                        </thead>
+                                                        <tbody id="tabloEtiketler">
+                                                            <tr>
+                                                                <td class="text-left">Kırmızı</td>
+                                                                <td class="text-right"><button type="button" onclick="etiketSil();" data-toggle="tooltip" title="" class="btn btn-danger" data-original-title="Remove"><i class="fa fa-minus-circle"></i></button></td>
+                                                            </tr>
+                                                        </tbody>
+                                                    </table>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div id="tab7" class="tab-pane fade">
+                                    <div class="row">
+                                        
+                                        <div class="col-md-12" >
+                                            <ul class="nav nav-tabs" id="teknikTabDil">
+                                                <li class="active"><a href="#tabDilDetay" data-toggle="tab">Türkçe</a></li>
+                                            </ul>
+
+                                            <div class="tab-content panel wrapper" id="teknikTab" >
+                                                <div id="teknikDetay" class="tab-pane fade active in">
+                                                    <div class="row">
+                                                        <div class="col-md-12">
+                                                            <form class="form-horizontal" role="form">
+
+                                                                <div class="form-group">
+                                                                    <label class="col-sm-2 control-label">Açıklama</label>
+                                                                    <div class="col-sm-10">
+                                                                        <div id="teknikAciklama"></div>
+                                                                    </div>
+                                                                </div>
+
+                                                                <div class="form-group">
+                                                                    <label class="col-sm-2 control-label">Açıklam Devam<span class="text-danger"> * </span></label>
+                                                                    <div class="col-sm-10">
+                                                                        <div id="teknikAciklamaDevam"></div>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="form-group">
+                                                                    <label class="col-sm-2 control-label">Teknik Detay <span class="text-danger"> * </span></label>
+                                                                    <div class="col-sm-10">
+                                                                        <div id="teknikDetay"></div>
+                                                                    </div>
+                                                                </div>
+                                                            </form>
+                                                        </div>
+                                                    </div>
+                                                </div>
+
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                </div>
+
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div aria-hidden="true" aria-labelledby="myModalLabel" role="dialog" tabindex="-1" id="bedenEkleme" class="modal fade" style="display: none;">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button aria-hidden="true" data-dismiss="modal" class="close" type="button">×</button>
+                <h4 class="modal-title">Yeni Beden Ekleme</h4>
+            </div>
+            <div class="modal-body">
+                <div class="form-group">
+                    <label for="exampleInputEmail1">Beden Adı</label>
+                    <input class="form-control" id="bedenAdi" placeholder="Beden Adı" type="text">
+                </div>
+                <a href="#" onclick="bedenEkle();" data-dismiss="modal" class="btn btn-success"><i class="fa fa-check"></i> Kaydet</a>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div aria-hidden="true" aria-labelledby="myModalLabel" role="dialog" tabindex="-1" id="renkEkleme" class="modal fade" style="display: none;">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button aria-hidden="true" data-dismiss="modal" class="close" type="button">×</button>
+                <h4 class="modal-title">Yeni Renk Ekleme</h4>
+            </div>
+            <div class="modal-body">
+                <div class="form-group">
+                    <label for="exampleInputEmail1">Renk Adı</label>
+                    <input class="form-control" id="renkAdi" placeholder="Renk Adı" type="text">
+                </div>
+                <div class="form-group">
+                    <label for="exampleInputEmail1">Renk Kodu</label>
+                    <input class="form-control" id="renkKodu" placeholder="Renk Kodu" type="color">
+                </div>
+                <a href="#" onclick="renkEkle();" data-dismiss="modal" class="btn btn-success"><i class="fa fa-check"></i> Kaydet</a>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div aria-hidden="true" aria-labelledby="myModalLabel" role="dialog" tabindex="-1" id="etiketEkleme" class="modal fade" style="display: none;">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button aria-hidden="true" data-dismiss="modal" class="close" type="button">×</button>
+                <h4 class="modal-title">Yeni Etiket Ekleme</h4>
+            </div>
+            <div class="modal-body">
+                <div class="form-group">
+                    <label for="exampleInputEmail1">Etiket</label>
+                    <input class="form-control" id="etiket" placeholder="etiket" type="text">
+                </div>
+                <a href="#" onclick="etiketEkle();" data-dismiss="modal" class="btn btn-success"><i class="fa fa-check"></i> Kaydet</a>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<script>
+
+    $(document).ready(function () {
+
+
+
+        urunKategorileri();
+        markalariGetir();        
+        urunBilgi();
+        urunTeknikBilgilerDillereGore();
+        detayGenelBilgiler();
+
+    });
+
+    function digerBilgiler()
+    {
+        
+    }
+
+    function resimSil(id) {
+        var prm = "{'uid':'" + document.getElementById("id").value + "','rid':'" + id + "'}";
+        $.ajax
+          ({
+              type: "POST",
+              url: "../e-ticaretyonetimdata.asmx/UrunResimSil",
+              data: prm,
+              contentType: "application/json;charset=utf-8",
+              dataType: "json",
+              success: function (result) {
+                  if (result.d == "Login") {
+                      location.href = "login.html";
+                  }
+                  else {
+                      alert("Resim Silinmiştir...");
+                  }
+              },
+              error: function (err) {
+                  location.href = "login.html";
+              }
+          });
+    }
+
+
+    function detayGenelBilgiler() {
+
+        var prm = "{'id':'" + document.getElementById("id").value + "'}";
+        $.ajax
+          ({
+              type: "POST",
+              url: "../e-ticaretyonetimdata.asmx/UrunGenelIDile",
+              data: prm,
+              contentType: "application/json;charset=utf-8",
+              dataType: "json",
+              success: function (result) {
+                  if (result.d == "Login") {
+                      location.href = "login.html";
+                  }
+                  else {
+                      var myData = JSON.parse(result.d);
+                      var data = myData.Table;
+                      for (var j = 0; j < data.length; j++) {
+
+                          document.getElementById("kategori").value = data[j].KategoriID;
+                          document.getElementById("markalar").value = data[j].MarkaID;
+                          document.getElementById("modelAdi").value = data[j].UrunKodu;
+                          document.getElementById("barkod").value = data[j].Barkod;
+                          document.getElementById("durum").value = data[j].Aktif;
+                      }
+                  }
+              },
+              error: function (err) {
+                  location.href = "login.html";
+              }
+          });
+    }
+
+</script>

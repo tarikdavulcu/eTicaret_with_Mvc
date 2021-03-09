@@ -1,0 +1,128 @@
+﻿<div class="ui-content-body">
+    <div class="ui-container">
+        <div class="row">
+            <div class="col-md-8">
+                <h1 class="page-title">
+                    FİRMA BİLGİLERİ
+                </h1>
+            </div>
+            <div class="col-md-4">
+                <ul class="breadcrumb pull-right">
+                    <a onclick="guncelle();" class="btn btn-success"><i class="fa fa-save"></i></a>
+                </ul>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-12">
+                <div class="panel">
+                    <header class="panel-heading panel-border">
+                        Fİrma Bİlgİlerİ
+                    </header>
+                    <div class="panel-body">
+                        <div id="bilgiler" class="col-md-12">
+
+                            <ul class="nav nav-tabs">
+                                <li class="active"><a href="#tab1" data-toggle="tab">TÜRKÇE</a></li>
+                            </ul>
+                            <div class="tab-content panel wrapper">
+                                <div id="tab1" class="tab-pane fade active in">
+                                    <div class="row">
+                                        <div class="col-md-12">
+                                            <form class="form-horizontal" role="form">
+                                                <div class="form-group">
+                                                    <label class="col-sm-2 control-label">Firma Adı</label>
+                                                    <div class="col-sm-8">
+                                                        <input id="firmaAdi" class="form-control" placeholder="Firma Adı" type="text">
+                                                    </div>
+                                                </div>
+                                                <div class="form-group">
+                                                    <label class="col-sm-2 control-label">E-Posta</label>
+                                                    <div class="col-sm-8">
+                                                        <input id="mail" class="form-control" placeholder="E-Posta" type="text">
+                                                    </div>
+                                                </div>
+                                                <div class="form-group">
+                                                    <label class="col-sm-2 control-label">Site Adresi</label>
+                                                    <div class="col-sm-8">
+                                                        <input id="web" class="form-control" placeholder="Site Adresi" type="text">
+                                                    </div>
+                                                </div>
+                                                <div class="form-group">
+                                                    <label class="col-sm-2 control-label">Telefon</label>
+                                                    <div class="col-sm-8">
+                                                        <input id="tel" class="form-control" placeholder="Telefon" type="text">
+                                                    </div>
+                                                </div>
+                                                <div class="form-group">
+                                                    <label class="col-sm-2 control-label">Faks</label>
+                                                    <div class="col-sm-8">
+                                                        <input id="faks" class="form-control" placeholder="Faks" type="text">
+                                                    </div>
+                                                </div>
+                                                <div class="form-group">
+                                                    <label class="col-sm-2 control-label">Mobil Tel</label>
+                                                    <div class="col-sm-8">
+                                                        <input id="mobil" class="form-control" placeholder="Mobil Tel" type="text">
+                                                    </div>
+                                                </div>
+                                                <div class="form-group">
+                                                    <label class="col-sm-2 control-label">Firma Adresi</label>
+                                                    <div class="col-sm-8">
+                                                        <textarea id="adres" name="" class="form-control" cols="30" rows="5"></textarea>
+                                                    </div>
+                                                </div>
+                                                <div class="form-group">
+                                                    <label class="col-sm-2 control-label">Ülke</label>
+                                                    <div class="col-sm-8">
+                                                        <input id="ulke" class="form-control" placeholder="Ülke" type="text">
+                                                    </div>
+                                                </div>
+                                                <div class="form-group">
+                                                    <label class="col-sm-2 control-label">Şehir</label>
+                                                    <div class="col-sm-8">
+                                                        <input id="sehir" class="form-control" placeholder="Şehir" type="text">
+                                                    </div>
+                                                </div>
+                                                <div class="form-group">
+                                                    <label class="col-sm-2 control-label">İlçe</label>
+                                                    <div class="col-sm-8">
+                                                        <input id="ilce" class="form-control" placeholder="İlçe" type="text">
+                                                    </div>
+                                                </div>
+                                                <div class="form-group">
+                                                    <label class="col-sm-2 control-label">Anahtar Kelimeler</label>
+                                                    <div class="col-sm-8">
+                                                        <input id="keywords" class="form-control" placeholder="Anahtar Kelimeler" type="text">
+                                                    </div>
+                                                </div>
+                                                <div class="form-group">
+                                                    <img id="logo" src="#" alt="" title="" data-placeholder="#">
+                                                </div>
+                                                <div class="form-group">
+                                                    <label class="col-sm-2 control-label">Site Logosu</label>
+                                                    <div class="col-sm-8">
+                                                        <input class="form-control" id="logo" multiple type="file">
+                                                    </div>
+                                                </div>
+                                            </form>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script type="text/javascript">
+    $(document).ready(function () {
+        siteBilgi();
+    });
+
+
+
+</script>

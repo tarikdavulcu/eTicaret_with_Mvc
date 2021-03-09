@@ -1,0 +1,101 @@
+﻿@model IEnumerable<e_ticaret.Models.UrunlerL>
+<!-- Product (Tab with Slider) -->
+<section class="section-padding-b">
+    <div class="container">
+        <h2 class="page-title">Top Interesting</h2>
+    </div>
+    <div class="container">
+        <ul class="product-filter nav" role="tablist">
+            <li class="nav-item">
+                <a class="nav-link active" href="#latest" role="tab" data-toggle="tab">New Product</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#best-sellar" role="tab" data-toggle="tab">Best Sellar</a>
+            </li>
+        </ul>
+        <div class="tab-content">
+            <!-- Tab1 - Latest Product -->
+            <div id="latest" role="tabpanel" class="tab-pane fade in active">
+                <div id="new-product" class="product-item-4 owl-carousel owl-theme nf-carousel-theme1">
+                    <!-- item.1 -->
+                    @foreach (var item in Model)
+                    {
+                        
+
+                        <div class="product-item">
+
+                            <div class="product-item-inner">
+                                <div class="product-img-wrap">
+                                    <img src="~/Content/img/product-img/big/@item.Resim" alt="@item.SeoLink">
+                                </div>
+                                <div class="product-button">
+                                    <a href="#" class="js_tooltip" data-mode="top" data-tip="Add To Cart"><i class="fa fa-shopping-bag"></i></a>
+                                    <a href="#" class="js_tooltip" data-mode="top" data-tip="Add To Whishlist"><i class="fa fa-heart"></i></a>
+                                    <a href="/Urunler/UrunDetay/@item.SeoLink" class="js_tooltip" data-mode="top" data-tip="Quick&nbsp;View"><i class="fa fa-eye"></i></a>
+                                </div>
+                            </div>
+                            <div class="product-detail">
+                                <a class="tag" href="/Urunler/UrunDetay/@item.SeoLink"></a>
+                                <p class="product-title"><a href="/Urunler/UrunDetay/@item.SeoLink">@item.UrunAdi</a></p>
+                                <div class="product-rating">
+                                    <div class="star-rating" itemprop="reviewRating" itemscope="" itemtype="http://schema.org/Rating" title="Rated 4 out of 5">
+                                        <span style="width: 60%"></span>
+                                    </div>
+                                    <a href="#" class="product-rating-count"><span class="count">3</span> Reviews</a>
+                                </div>
+                                <p class="product-description">
+                                    @item.Aciklama
+                                </p>
+                                <h5 class="item-price">@item.Fiyat</h5>
+                            </div>
+
+                        </div>
+                    }
+
+
+                </div>
+            </div>
+            @foreach (var item in Model)
+            {
+                foreach (var urun in item.Urunler.Sepet_Detay.GroupBy(p => p.UrunID).Select(a=> new { Adet =a.Sum(b=>b.Adet)}).OrderByDescending(a=>a.Adet))
+                {
+                    <div id="best-sellar" role="tabpanel" class="tab-pane fade">
+                        <div id="popular-product" class="product-item-4 owl-carousel owl-theme nf-carousel-theme1">
+                            <!-- item.1 -->
+                            <div class="product-item">
+                                <div class="product-item-inner">
+                                    <div class="product-img-wrap">
+                                        <img src="~/Content/img/product-img/big/@item.Resim" alt="@item.SeoLink">
+                                    </div>
+                                    <div class="product-button">
+                                        <a href="#" class="js_tooltip" data-mode="top" data-tip="Add To Cart"><i class="fa fa-shopping-bag"></i></a>
+                                        <a href="#" class="js_tooltip" data-mode="top" data-tip="Add To Whishlist"><i class="fa fa-heart"></i></a>
+                                        <a href="/Urunler/UrunDetay/@item.SeoLink" class="js_tooltip" data-mode="top" data-tip="Quick&nbsp;View"><i class="fa fa-eye"></i></a>
+                                    </div>
+                                </div>
+                                <div class="product-detail">
+                                    <a class="tag" href="/Urunler/UrunDetay/@item.SeoLink"></a>
+                                    <p class="product-title"><a href="/Urunler/UrunDetay/@item.SeoLink">@item.UrunAdi</a></p>
+                                    <div class="product-rating">
+                                        <div class="star-rating" itemprop="reviewRating" itemscope="" itemtype="http://schema.org/Rating" title="Rated 4 out of 5">
+                                            <span style="width: 60%"></span>
+                                        </div>
+                                        <a href="#" class="product-rating-count"><span class="count">3</span> Reviews</a>
+                                    </div>
+                                    <p class="product-description">
+                                        @item.Aciklama
+                                    </p>
+                                    <h5 class="item-price">@item.Fiyat</h5>
+                                </div>
+                            </div>
+
+
+                        </div>
+                    </div>
+                }
+            }
+
+        </div>
+    </div>
+</section>
+<!-- End Product (Tab with Slider) -->

@@ -1,0 +1,821 @@
+﻿<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Home</title>
+
+    <!-- inject:css -->
+    <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="bower_components/font-awesome/css/font-awesome.min.css">
+    <link rel="stylesheet" href="bower_components/simple-line-icons/css/simple-line-icons.css">
+    <link rel="stylesheet" href="bower_components/weather-icons/css/weather-icons.min.css">
+    <link rel="stylesheet" href="bower_components/themify-icons/css/themify-icons.css">
+    <link rel="stylesheet" href="dist/css/main.css">
+    <link rel="stylesheet" href="bower_components/rickshaw/rickshaw.min.css">
+    <link rel="stylesheet" href="assets/js/jquery-easy-pie-chart/easypiechart.css">
+    <link rel="stylesheet" href="assets/js/horizontal-timeline/css/style.css">
+    <link rel="stylesheet" href="bower_components/summernote/dist/summernote.css">
+    <link rel="stylesheet" href="bower_components/blueimp-file-upload/css/jquery.fileupload.css">
+    <link rel="stylesheet" href="bower_components/blueimp-file-upload/css/jquery.fileupload-ui.css">
+    <script src="dist/js/by.js"></script>
+    <script src="assets/js/modernizr-custom.js"></script>
+</head>
+<body>
+
+    <div id="ui" class="ui">
+
+
+        <header id="header" class="ui-header">
+
+            <div class="navbar-header">
+                <!--logo start-->
+                <a href="index.html" class="navbar-brand">
+                    <span class="logo"><!--<img src="imgs/logo-dark.png" alt=""/>-->KUTLU</span>
+                    <span class="logo-compact"><!--<img src="imgs/logo-icon-dark.png" alt=""/>-->KT</span>
+                </a>
+                <!--logo end-->
+            </div>
+
+
+            <div class="navbar-collapse nav-responsive-disabled">
+
+                <!--toggle buttons start-->
+                <ul class="nav navbar-nav">
+                    <li>
+                        <a class="toggle-btn" data-toggle="ui-nav" href="#">
+                            <i class="fa fa-bars"></i>
+                        </a>
+                    </li>
+                </ul>
+                <!-- toggle buttons end -->
+                <!--notification start-->
+                <ul class="nav navbar-nav navbar-right">
+                    <li class="dropdown dropdown-usermenu">
+                        <a href="#" class=" dropdown-toggle" data-toggle="dropdown" aria-expanded="true">
+                            <div class="user-avatar"><img src="#" alt="..."></div>
+                            <span id="loginSatir" class="hidden-sm hidden-xs">Kutlu</span>
+                            <!--<i class="fa fa-angle-down"></i>-->
+                            <span class="caret hidden-sm hidden-xs"></span>
+                        </a>
+                        <ul class="dropdown-menu dropdown-menu-usermenu pull-right">
+                            <li><a href="#"><i class="fa fa-cogs"></i>  Ayarlar</a></li>
+                            <li><a onclick="exit();"><i class="fa fa-sign-out"></i> Çıkış</a></li>
+                        </ul>
+                    </li>
+                </ul>
+                <!--notification end-->
+
+            </div>
+
+        </header>
+
+
+
+        <aside id="aside" class="ui-aside">
+            <ul class="nav" ui-nav>
+                <li class="nav-head">
+                    <h5 class="nav-title text-uppercase light-txt">Yönetİm</h5>
+                </li>
+                <li>
+                    <a href="#"><i class="fa fa-language"></i><span>AnaSayfa</span></i></a>
+                </li>
+                <li>
+                    <a href="javascript:void(0);" onclick="dosyaOku('../Admin/documan/diller.html');"><i class="fa fa-home"></i><span>Kayıtlı Diller</span></i></a>
+                </li>
+                <li>
+                    <a href="#"><i class="fa fa-cogs"></i><span>Ayarlar</span><i class="fa fa-angle-right pull-right"></i></a>
+                    <ul class="nav nav-sub">
+                        <li>
+                            <a href="#"><i class="fa fa-cog"></i><span>Genel Ayarları</span><i class="fa fa-angle-right pull-right"></i></a>
+                            <ul class="nav nav-sub">
+                                <li><a href="javascript:void(0);" onclick="dosyaOku('../Admin/documan/firmabilgileri.html');"><span>Firma Bilgileri </span></a></li>
+                                <li><a href="javascript:void(0);" onclick="dosyaOku('../Admin/documan/siteayarlari.html');"><span>Site Ayarları</span></a></li>
+                                <li><a href="javascript:void(0);" onclick="dosyaOku('../Admin/documan/slider.html');"><span>Slider Ayarları</span></a></li>
+                                <li><a href="javascript:void(0);" onclick="dosyaOku('../Admin/documan/promasyon.html');"><span>Promasyon Ürünler</span></a></li>
+                            </ul>
+                        </li>
+                    </ul>
+                </li>
+
+                <li>
+                    <a href="#"><i class="fa fa-product-hunt"></i><span>Ürün ve Kategori</span><i class="fa fa-angle-right pull-right"></i></a>
+                    <ul class="nav nav-sub">
+                        <li><a href="javascript:void(0);" onclick="dosyaOku('../Admin/documan/kategoriler.html');"><span>Kategori Yönetimi</span></a></li>
+                        <li><a href="javascript:void(0);" onclick="dosyaOku('../Admin/documan/urunler.html');"><span>Ürün Yönetimi</span></a></li>
+                        <li><a href="javascript:void(0);" onclick="dosyaOku('../Admin/documan/markalar.html');"><span>Markalar</span></a></li>
+                        <li><a href="ecommerce-orders-view.html"><span>Tedarikçi Firmalar</span></a></li>
+                        <li><a href="ecommerce-products.html"><span>Etiket Yönetimi</span></a></li>
+                        <li><a href="ecommerce-product-edit.html"><span>Toplu Ürün İşlemleri</span></a></li>
+                        <li>
+                            <a href="#"><span>Ek Özellikler </span><i class="fa fa-angle-right pull-right"></i></a>
+                            <ul class="nav nav-sub">
+                                <li><a href="#"><span>Varyasyon Grupları </span></a></li>
+                                <li><a href="#"><span>Teknik Detaylar </span></a></li>
+                                <li><a href="#"><span>Extra Ürün Bilgileri </span></a></li>
+                                <li><a href="#"><span>Ürün Aksesuar Grupları </span></a></li>
+                                <li><a href="#"><span>Ürün Yorumları </span></a></li>
+                                <li><a href="#"><span>Hatırlatmalar </span></a></li>
+                                <li><a href="#"><span>Stok Hatırlatma </span></a></li>
+                            </ul>
+                        </li>
+                        <li>
+                            <a href="#"><span>Gelişmiş Ürün Sıralama </span><i class="fa fa-angle-right pull-right"></i></a>
+                            <ul class="nav nav-sub">
+                                <li><a href="#"><span>Ana Sayfa Ürün Sıralama </span></a></li>
+                                <li><a href="#"><span>Kategori Ürün Sıralama </span></a></li>
+                                <li><a href="#"><span>Marka Ürün Bilgileri </span></a></li>
+                            </ul>
+                        </li>
+                    </ul>
+                </li>
+
+                <li>
+                    <a href="#"><i class="fa fa-shopping-cart"></i><span>Siparişler</span><i class="fa fa-angle-right pull-right"></i></a>
+                    <ul class="nav nav-sub">
+                        <li class="nav-sub-header"><a href="#"><span>Siparişler Listesi</span></a></li>
+                        <li><a href="#"><span>Ödeme Yapılmayan Siparişler</span></a></li>
+                        <li><a href="#"><span>Hatalı Ödeme Kayıtları</span></a></li>
+                        <li>
+                            <a href="#"><span>Sipariş Bildirimleri </span><i class="fa fa-angle-right pull-right"></i></a>
+                            <ul class="nav nav-sub">
+                                <li><a href="#"><span>Havale / Eft Bildirimleri </span></a></li>
+                                <li><a href="#"><span>Telefonla Sipariş Detayları </span></a></li>
+                                <li><a href="#"><span>İptal / İade Talepleri </span></a></li>
+                            </ul>
+                        </li>
+
+                    </ul>
+                </li>
+
+                <li>
+                    <a href="#"><i class="fa fa-user-o"></i><span>Üyeler - Bayiler</span><i class="fa fa-angle-right pull-right"></i></a>
+                    <ul class="nav nav-sub">
+                        <li class="nav-sub-header"><a href="#"><span>Üye Yönetimi</span></a></li>
+                        <li><a href="#"><span>Kayıtlı Üyeler</span></a></li>
+
+                    </ul>
+                </li>
+
+                <li>
+                    <a href="#"><i class="fa fa-user-o"></i><span>SEO</span><i class="fa fa-angle-right pull-right"></i></a>
+                    <ul class="nav nav-sub">
+                        <li class="nav-sub-header"><a href="#"><span>Satış Raporları</span></a></li>
+                        <li><a href="#"><span>Ürün Bazlı Raporlar</span></a></li>
+                        <li><a href="#"><span>Kategori Bazlı Raporlar</span></a></li>
+                        <li><a href="#"><span>Marka Bazlı Raporlar</span></a></li>
+                        <li><a href="#"><span>Ödeme Tipine Göre Raporlar</span></a></li>
+
+                    </ul>
+                </li>
+
+                <li>
+                    <a href="#"><i class="fa fa-bar-chart"></i><span>Raporlar</span><i class="fa fa-angle-right pull-right"></i></a>
+                    <ul class="nav nav-sub">
+                        <li class="nav-sub-header"><a href="#"><span>Kategori Seo Güncelleme</span></a></li>
+                        <li><a href="#"><span>Marka Seo Güncelleme</span></a></li>
+                        <li><a href="#"><span>Tedarikçi Seo Güncelleme</span></a></li>
+                        <li><a href="#"><span>Ürün Seo Güncelleme</span></a></li>
+                        <li><a href="#"><span>Sayfa Seo Güncelleme</span></a></li>
+
+                    </ul>
+                </li>
+
+            </ul>
+        </aside>
+
+        <div class="ui-content ui-content-aside-overlay">
+
+            <div id="content" class="ui-content-body">
+
+                <div class="ui-container">
+
+                    <!--page title and breadcrumb start -->
+                    <div class="row">
+                        <div class="col-md-8">
+                            <h1 class="page-title">
+                                Yönetim Paneli
+                                <small>Ürünler, istatistikler, raporlar ve diğer ayarlar</small>
+                            </h1>
+                        </div>
+                        <div class="col-md-4">
+                            <ul class="breadcrumb pull-right">
+                                <li>Ana Sayfa</li>
+                                <li><a href="#" class="active">Yönetim Paneli</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <!--page title and breadcrumb end -->
+                    <!--states start-->
+                    <div class="row">
+                        <div class="col-md-3 col-sm-6">
+                            <div class="panel short-states bg-danger">
+                                <div class="pull-right state-icon">
+                                    <i class="fa fa-shopping-cart"></i>
+                                </div>
+                                <div class="panel-body">
+                                    <h1 class="light-txt">1,3012</h1>
+                                    <div class=" pull-right">53% <i class="fa fa-bolt"></i></div>
+                                    <strong class="text-uppercase">NEW ORDERS</strong>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-3 col-sm-6">
+                            <div class="panel short-states bg-info">
+                                <div class="pull-right state-icon">
+                                    <i class="fa fa-users"></i>
+                                </div>
+                                <div class="panel-body">
+                                    <h1 class="light-txt">5,534</h1>
+                                    <div class=" pull-right">65% <i class="fa fa-level-up"></i></div>
+                                    <strong class="text-uppercase">new users</strong>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-3 col-sm-6">
+                            <div class="panel short-states bg-warning">
+                                <div class="pull-right state-icon">
+                                    <i class="fa fa-laptop"></i>
+                                </div>
+                                <div class="panel-body">
+                                    <h1 class="light-txt">$22,329</h1>
+                                    <div class=" pull-right">77% <i class="fa fa-level-down"></i></div>
+                                    <strong class="text-uppercase">Online Revenue</strong>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-3 col-sm-6">
+                            <div class="panel short-states bg-primary">
+                                <div class="pull-right state-icon">
+                                    <i class="fa fa-pie-chart"></i>
+                                </div>
+                                <div class="panel-body">
+                                    <h1 class="light-txt">$268,188</h1>
+                                    <div class=" pull-right">88% <i class="fa fa-level-up"></i></div>
+                                    <strong class="text-uppercase">Total Profit</strong>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!--states end-->
+
+
+                    <div class="row">
+
+                        <div class="col-md-6">
+                            <div class="panel">
+                                <header class="panel-heading">
+                                    Project Statistics
+                                    <span class="tools pull-right">
+                                        <a class="close-box fa fa-times" href="javascript:;"></a>
+                                    </span>
+                                </header>
+                                <div class="panel-body">
+                                    <div id="b-line" style="height: 370px"></div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="panel">
+                                <header class="panel-heading">
+                                    Product Sales
+                                    <span class="tools pull-right">
+                                        <a class="close-box fa fa-times" href="javascript:;"></a>
+                                    </span>
+                                </header>
+                                <div class="panel-body">
+                                    <div id="b-area" style="height: 370px"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <!--daily visit start-->
+                        <div class=" col-md-4 ">
+                            <div class="panel">
+                                <header class="panel-heading panel-border">
+                                    Daily Visit
+                                    <span class="tools pull-right">
+                                        <a class="refresh-box fa fa-repeat" href="javascript:;"></a>
+                                        <a class="collapse-box fa fa-chevron-down" href="javascript:;"></a>
+                                        <a class="close-box fa fa-times" href="javascript:;"></a>
+                                    </span>
+                                </header>
+                                <div class="panel-body">
+                                    <div class="row">
+                                        <div class="col-md-4 text-center">
+                                            <div class="chart-wrap">
+                                                <div id="bar-chart-1"></div>
+                                                <small>Laptop</small>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-4 text-center">
+                                            <div class="chart-wrap">
+                                                <div id="bar-chart-2"></div>
+                                                <small>iPhone</small>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-4 text-center">
+                                            <div class="chart-wrap">
+                                                <div id="bar-chart-3"></div>
+                                                <small>iPad</small>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!--daily visit end-->
+                        <!--Visitor Graph start-->
+                        <div class="col-md-4 ">
+                            <div class="panel">
+                                <header class="panel-heading panel-border">
+                                    Visitor Graph
+                                    <span class="tools pull-right">
+                                        <a class="refresh-box fa fa-repeat" href="javascript:;"></a>
+                                        <a class="collapse-box fa fa-chevron-down" href="javascript:;"></a>
+                                        <a class="close-box fa fa-times" href="javascript:;"></a>
+                                    </span>
+                                </header>
+                                <div class="panel-body text-center">
+                                    <div class="chart-wrap">
+                                        <div id="line-chart-1"></div>
+                                        <small class="mbot-2">Page visit <span class="h5">10,090</span></small>
+                                        <!--<small>Page visit</small>-->
+                                    </div>
+                                    <div class="chart-wrap">
+                                        <div id="line-chart-2"></div>
+                                        <small class="mbot-2">Unique visitor <span class="h5">8,129</span></small>
+                                        <!--<small>Avg. visit Duration</small>-->
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!--Visitor Graph end-->
+                        <!--Random Info start-->
+                        <div class="col-md-4 ">
+                            <div class="panel">
+                                <header class="panel-heading panel-border">
+                                    Random Info
+                                    <span class="tools pull-right">
+                                        <a class="refresh-box fa fa-repeat" href="javascript:;"></a>
+                                        <a class="collapse-box fa fa-chevron-down" href="javascript:;"></a>
+                                        <a class="close-box fa fa-times" href="javascript:;"></a>
+                                    </span>
+                                </header>
+                                <div class="panel-body text-center">
+                                    <div class="row">
+                                        <div class="col-md-4 col-sm-4 text-center">
+                                            <span class="chart" data-percent="80">
+                                                <span class="percent">80</span>
+                                            </span>
+                                            <div><small>Page Views</small></div>
+                                        </div>
+                                        <div class="col-md-4 col-sm-4 text-center">
+                                            <span class="chart" data-percent="75">
+                                                <span class="percent">75</span>
+                                            </span>
+                                            <div><small>New Clients</small></div>
+                                        </div>
+                                        <div class="col-md-4 col-sm-4 text-center">
+                                            <span class="chart" data-percent="40">
+                                                <span class="percent">40</span>
+                                            </span>
+                                            <div><small>Task Finished</small></div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!--Random Info end-->
+
+                    </div>
+
+                    <!--task distribution start-->
+                    <div class="row">
+                        <!--charts start-->
+                        <div class="col-md-7 ">
+                            <div class="panel">
+                                <header class="panel-heading panel-border">
+                                    Latest Order
+                                    <span class="tools pull-right">
+                                        <a class="refresh-box fa fa-repeat" href="javascript:;"></a>
+                                        <a class="collapse-box fa fa-chevron-down" href="javascript:;"></a>
+                                        <a class="close-box fa fa-times" href="javascript:;"></a>
+                                    </span>
+                                </header>
+                                <div class="panel-body">
+                                    <div class="order-short-info">
+                                        <span class="mtop-10"> Paid Orders: <strong>123 <i class="fa fa-level-up text-primary"></i></strong>,  Unpaid Orders: <strong> 212 <i class="fa fa-level-down text-danger"></i></strong></span>
+                                        <a href="#" class="pull-right pull-left-xs btn btn-primary btn-sm">View Full Orders</a>
+                                    </div>
+                                    <hr />
+                                    <div class="table-responsive">
+                                        <table class="table table-hover latest-order">
+                                            <thead>
+                                                <tr>
+                                                    <th>Product ID</th>
+                                                    <th>Customer Name</th>
+                                                    <th>Invoice#</th>
+                                                    <th>Amount</th>
+                                                    <th>Status</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <tr>
+                                                    <td>PID-001</td>
+                                                    <td>Jhon Wiliumson</td>
+                                                    <td><a href="#">IN-0001</a></td>
+                                                    <td>$ 1234.00</td>
+                                                    <td>
+                                                        <span class="label label-success">Paid</span>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td>PID-002</td>
+                                                    <td>Jakolin Jack</td>
+                                                    <td><a href="#">IN-0002</a></td>
+                                                    <td>$ 2123.00</td>
+                                                    <td>
+                                                        <span class="label label-danger">Overdue</span>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td>PID-003</td>
+                                                    <td>Anderson Doe</td>
+                                                    <td><a href="#">IN-0003</a></td>
+                                                    <td>$ 345.00</td>
+                                                    <td>
+                                                        <span class="label label-warning">Due</span>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td>PID-004</td>
+                                                    <td>Margarita Rose</td>
+                                                    <td><a href="#">IN-0004</a></td>
+                                                    <td>$ 45651.00</td>
+                                                    <td>
+                                                        <span class="label label-success">Paid</span>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td>PID-005</td>
+                                                    <td>Jonathan Smith</td>
+                                                    <td><a href="#">IN-0005</a></td>
+                                                    <td>$ 2123.00</td>
+                                                    <td>
+                                                        <span class="label label-danger">Overdue</span>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td>PID-006</td>
+                                                    <td>Nekol Dimon</td>
+                                                    <td><a href="#">IN-0006</a></td>
+                                                    <td>$ 9876.00</td>
+                                                    <td>
+                                                        <span class="label label-warning">Due</span>
+                                                    </td>
+                                                </tr>
+
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!--charts end-->
+
+                        <div class="col-md-5">
+                            <div class="panel">
+                                <!--<header class="panel-heading">-->
+                                <!--Polar Chart-->
+                                <!--<span class="tools pull-right">-->
+                                <!--<a class="refresh-box fa fa-repeat" href="javascript:;"></a>-->
+                                <!--<a class="collapse-box fa fa-chevron-down" href="javascript:;"></a>-->
+                                <!--<a class="close-box fa fa-times" href="javascript:;"></a>-->
+                                <!--</span>-->
+                                <!--</header>-->
+                                <div class="panel-body">
+                                    <div id="polar-chart"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!--task distribution end-->
+
+                    <div class="row">
+                        <!--task duration start-->
+                        <div class="col-md-5 ">
+                            <div class="panel">
+                                <header class="panel-heading">
+                                    Task Distribution
+                                    <span class="tools pull-right">
+                                        <a class="close-box fa fa-times" href="javascript:;"></a>
+                                    </span>
+                                </header>
+                                <div>
+                                    <ul class="Notification-list list-group">
+
+                                        <li class="Notification list-group-item">
+                                            <button class="Notification__status Notification__status--read" type="button" name="button"></button>
+                                            <a href="javaScritp:;">
+                                                <div class="Notification__avatar pull-left">
+                                                    <img src="imgs/a0.jpg" alt="...">
+                                                </div>
+                                                <div class="Notification__highlight">
+                                                    <p class="Notification__highlight-excerpt"><b>Jonathan Smith</b> and 4 other people like your post “Awesome Bootstrap dashbord”.</p>
+                                                    <p class="Notification__highlight-time">1 day ago</p>
+                                                </div>
+                                            </a>
+                                        </li>
+
+
+                                        <li class="Notification list-group-item">
+                                            <button class="Notification__status Notification__status--read" type="button" name="button"></button>
+                                            <a href="javaScritp:;">
+                                                <div class="Notification__avatar pull-left">
+                                                    <img src="imgs/a1.jpg" alt="...">
+                                                </div>
+                                                <div class="Notification__highlight">
+                                                    <p class="Notification__highlight-excerpt"><b>Tomas Edison</b> and 4 other people like your post “keep clam and watch the fizz”.</p>
+                                                    <p class="Notification__highlight-time">1 day ago</p>
+                                                </div>
+                                            </a>
+                                        </li>
+
+                                        <li class="Notification list-group-item">
+                                            <button class="Notification__status Notification__status--unread" type="button" name="button"></button>
+                                            <a href="javaScritp:;">
+                                                <div class="Notification__avatar pull-left">
+                                                    <img src="imgs/a0.jpg" alt="...">
+                                                </div>
+                                                <div class="Notification__highlight">
+                                                    <p class="Notification__highlight-excerpt"><b>Luciad Extic</b> can join conference.</p>
+                                                    <p class="Notification__highlight-time">1 hour ago</p>
+                                                </div>
+                                            </a>
+                                        </li>
+                                        <li class="Notification list-group-item">
+                                            <button class="Notification__status Notification__status--read" type="button" name="button"></button>
+                                            <a href="javaScritp:;">
+                                                <div class="Notification__avatar pull-left">
+                                                    <img src="imgs/a2.jpg" alt="...">
+                                                </div>
+                                                <div class="Notification__highlight">
+                                                    <p class="Notification__highlight-excerpt"><b>Tomas Edison</b> and 4 other people like your post “keep clam and watch the fizz”.</p>
+                                                    <p class="Notification__highlight-time">1 day ago</p>
+                                                </div>
+                                            </a>
+                                        </li>
+
+
+                                        <li class="Notification list-group-item">
+                                            <button class="Notification__status Notification__status--read" type="button" name="button"></button>
+                                            <a href="javaScritp:;">
+                                                <div class="Notification__avatar pull-left">
+                                                    <img src="imgs/a1.jpg" alt="...">
+                                                </div>
+                                                <div class="Notification__highlight">
+                                                    <p class="Notification__highlight-excerpt"><b>Tomas Edison</b> and 4 other people like your post “keep clam and watch the fizz”.</p>
+                                                    <p class="Notification__highlight-time">1 day ago</p>
+                                                </div>
+                                            </a>
+                                        </li>
+
+                                        <li class="Notification list-group-item">
+                                            <button class="Notification__status Notification__status--unread" type="button" name="button"></button>
+                                            <a href="javaScritp:;">
+                                                <div class="Notification__avatar pull-left">
+                                                    <img src="imgs/a0.jpg" alt="...">
+                                                </div>
+                                                <div class="Notification__highlight">
+                                                    <p class="Notification__highlight-excerpt"><b>Luciad Extic</b> can join conference.</p>
+                                                    <p class="Notification__highlight-time">1 hour ago</p>
+                                                </div>
+                                            </a>
+                                        </li>
+
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                        <!--task duration end-->
+                        <!--horzontal timeline start-->
+                        <div class="col-md-7 ">
+                            <div class="panel">
+                                <header class="panel-heading panel-border">
+                                    Horizontal Timeline
+                                    <span class="tools pull-right">
+                                        <a class="close-box fa fa-times" href="javascript:;"></a>
+                                    </span>
+                                </header>
+                                <div class="panel-body">
+                                    <section class="cd-horizontal-timeline">
+                                        <div class="timeline">
+                                            <div class="events-wrapper">
+                                                <div class="events">
+                                                    <ol class="list-unstyled">
+                                                        <li><a href="#0" data-date="11/01/2014" class="selected"><span>11 Jan</span></a></li>
+                                                        <li><a href="#0" data-date="28/02/2014"><span>28 Feb</span></a></li>
+                                                        <li><a href="#0" data-date="20/04/2014"><span>20 Mar</span></a></li>
+                                                        <li><a href="#0" data-date="20/05/2014"><span>20 May</span></a></li>
+                                                        <li><a href="#0" data-date="09/07/2014"><span>09 Jul</span></a></li>
+                                                        <li><a href="#0" data-date="30/08/2014"><span>30 Aug</span></a></li>
+                                                        <li><a href="#0" data-date="15/09/2014"><span>15 Sep</span></a></li>
+                                                        <li><a href="#0" data-date="01/11/2014"><span>01 Nov</span></a></li>
+                                                        <li><a href="#0" data-date="10/12/2014"><span>10 Dec</span></a></li>
+                                                        <li><a href="#0" data-date="19/01/2015"><span>29 Jan</span></a></li>
+                                                        <li><a href="#0" data-date="03/03/2015"><span>3 Mar</span></a></li>
+                                                    </ol>
+
+                                                    <span class="filling-line" aria-hidden="true"></span>
+                                                </div>
+                                            </div>
+
+                                            <ul class="cd-timeline-navigation list-unstyled">
+                                                <li><a href="#0" class="prev inactive">Prev</a></li>
+                                                <li><a href="#0" class="next">Next</a></li>
+                                            </ul>
+                                        </div>
+
+                                        <div class="events-content">
+                                            <ol class="list-unstyled">
+                                                <li class="selected" data-date="11/01/2014">
+                                                    <h2>Timeline Title One</h2>
+                                                    <em>January 11th, 2014</em>
+                                                    <p>
+                                                        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Illum praesentium officia, fugit recusandae ipsa, quia velit nulla adipisci? Consequuntur aspernatur at, eaque hic repellendus sit dicta consequatur quae, ut harum ipsam molestias maxime non nisi reiciendis eligendi! Doloremque quia pariatur harum ea amet quibusdam quisquam, quae, temporibus dolores porro doloribus.
+                                                    </p>
+                                                </li>
+
+                                                <li data-date="28/02/2014">
+                                                    <h2>Timeline Title Two</h2>
+                                                    <em>February 28th, 2014</em>
+                                                    <p>
+                                                        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Illum praesentium officia, fugit recusandae ipsa, quia velit nulla adipisci? Consequuntur aspernatur at, eaque hic repellendus sit dicta consequatur quae, ut harum ipsam molestias maxime non nisi reiciendis eligendi! Doloremque quia pariatur harum ea amet quibusdam quisquam, quae, temporibus dolores porro doloribus.
+                                                    </p>
+                                                </li>
+
+                                                <li data-date="20/04/2014">
+                                                    <h2>Timeline Title Three</h2>
+                                                    <em>March 20th, 2014</em>
+                                                    <p>
+                                                        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Illum praesentium officia, fugit recusandae ipsa, quia velit nulla adipisci? Consequuntur aspernatur at, eaque hic repellendus sit dicta consequatur quae, ut harum ipsam molestias maxime non nisi reiciendis eligendi! Doloremque quia pariatur harum ea amet quibusdam quisquam, quae, temporibus dolores porro doloribus.
+                                                    </p>
+                                                </li>
+
+                                                <li data-date="20/05/2014">
+                                                    <h2>Timeline Title Four</h2>
+                                                    <em>May 20th, 2014</em>
+                                                    <p>
+                                                        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Illum praesentium officia, fugit recusandae ipsa, quia velit nulla adipisci? Consequuntur aspernatur at, eaque hic repellendus sit dicta consequatur quae, ut harum ipsam molestias maxime non nisi reiciendis eligendi! Doloremque quia pariatur harum ea amet quibusdam quisquam, quae, temporibus dolores porro doloribus.
+                                                    </p>
+                                                </li>
+
+                                                <li data-date="09/07/2014">
+                                                    <h2>Timeline Title Five</h2>
+                                                    <em>July 9th, 2014</em>
+                                                    <p>
+                                                        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Illum praesentium officia, fugit recusandae ipsa, quia velit nulla adipisci? Consequuntur aspernatur at, eaque hic repellendus sit dicta consequatur quae, ut harum ipsam molestias maxime non nisi reiciendis eligendi! Doloremque quia pariatur harum ea amet quibusdam quisquam, quae, temporibus dolores porro doloribus.
+                                                    </p>
+                                                </li>
+
+                                                <li data-date="30/08/2014">
+                                                    <h2>Timeline Title Six</h2>
+                                                    <em>August 30th, 2014</em>
+                                                    <p>
+                                                        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Illum praesentium officia, fugit recusandae ipsa, quia velit nulla adipisci? Consequuntur aspernatur at, eaque hic repellendus sit dicta consequatur quae, ut harum ipsam molestias maxime non nisi reiciendis eligendi! Doloremque quia pariatur harum ea amet quibusdam quisquam, quae, temporibus dolores porro doloribus.
+                                                    </p>
+                                                </li>
+
+                                                <li data-date="15/09/2014">
+                                                    <h2>Timeline Title Seven</h2>
+                                                    <em>September 15th, 2014</em>
+                                                    <p>
+                                                        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Illum praesentium officia, fugit recusandae ipsa, quia velit nulla adipisci? Consequuntur aspernatur at, eaque hic repellendus sit dicta consequatur quae, ut harum ipsam molestias maxime non nisi reiciendis eligendi! Doloremque quia pariatur harum ea amet quibusdam quisquam, quae, temporibus dolores porro doloribus.
+                                                    </p>
+                                                </li>
+
+                                                <li data-date="01/11/2014">
+                                                    <h2>Timeline Title Eight</h2>
+                                                    <em>November 1st, 2014</em>
+                                                    <p>
+                                                        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Illum praesentium officia, fugit recusandae ipsa, quia velit nulla adipisci? Consequuntur aspernatur at, eaque hic repellendus sit dicta consequatur quae, ut harum ipsam molestias maxime non nisi reiciendis eligendi! Doloremque quia pariatur harum ea amet quibusdam quisquam, quae, temporibus dolores porro doloribus.
+                                                    </p>
+                                                </li>
+
+                                                <li data-date="10/12/2014">
+                                                    <h2>Timeline Title Nine</h2>
+                                                    <em>December 10th, 2014</em>
+                                                    <p>
+                                                        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Illum praesentium officia, fugit recusandae ipsa, quia velit nulla adipisci? Consequuntur aspernatur at, eaque hic repellendus sit dicta consequatur quae, ut harum ipsam molestias maxime non nisi reiciendis eligendi! Doloremque quia pariatur harum ea amet quibusdam quisquam, quae, temporibus dolores porro doloribus.
+                                                    </p>
+                                                </li>
+
+                                                <li data-date="19/01/2015">
+                                                    <h2>Timeline Title Ten</h2>
+                                                    <em>January 19th, 2015</em>
+                                                    <p>
+                                                        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Illum praesentium officia, fugit recusandae ipsa, quia velit nulla adipisci? Consequuntur aspernatur at, eaque hic repellendus sit dicta consequatur quae, ut harum ipsam molestias maxime non nisi reiciendis eligendi! Doloremque quia pariatur harum ea amet quibusdam quisquam, quae, temporibus dolores porro doloribus.
+                                                    </p>
+                                                </li>
+
+                                                <li data-date="03/03/2015">
+                                                    <h2>Timeline Title Eleven</h2>
+                                                    <em>March 3rd, 2015</em>
+                                                    <p>
+                                                        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Illum praesentium officia, fugit recusandae ipsa, quia velit nulla adipisci? Consequuntur aspernatur at, eaque hic repellendus sit dicta consequatur quae, ut harum ipsam molestias maxime non nisi reiciendis eligendi! Doloremque quia pariatur harum ea amet quibusdam quisquam, quae, temporibus dolores porro doloribus.
+                                                    </p>
+                                                </li>
+                                            </ol>
+                                        </div>
+                                    </section>
+                                </div>
+
+                            </div>
+                        </div>
+                        <!--horzontal timeline end-->
+
+                    </div>
+
+                </div>
+
+            </div>
+        </div>
+
+        <input id="id" type="hidden" />
+        <div id="footer" class="ui-footer">
+            2017 &copy; Liman & Byte Yazılım
+        </div>
+
+    </div>
+    <script src="bower_components/jquery/dist/jquery.min.js"></script>
+    <script src="bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+    <script src="bower_components/jquery.nicescroll/dist/jquery.nicescroll.min.js"></script>
+    <script src="bower_components/autosize/dist/autosize.min.js"></script>
+    <script src="assets/js/horizontal-timeline/js/jquery.mobile.custom.min.js"></script>
+    <script src="assets/js/horizontal-timeline/js/main.js"></script>
+    <script src="bower_components/summernote/dist/summernote.js"></script>
+
+
+    <script src="dist/js/main.js"></script>
+
+    <script type="text/javascript">
+        $(document).ready(function () {
+            kontrolet();
+            kullaniciBilgi();
+        });
+
+        function kontrolet() {
+            $.ajax
+              ({
+                  type: "POST",
+                  url: "../e-ticaretyonetimdata.asmx/LoginKontrol",
+                  data: {},
+                  contentType: "application/json;charset=utf-8",
+                  dataType: "json",
+
+                  success: function (result) {
+                      if (result.d == false) {
+                          location.href = "login.html";
+                      }
+                      else {
+                      }
+
+                  },
+                  error: function (err) {
+                  }
+              });
+        }
+
+        function dosyaOku(pURL) {
+            if (window.XMLHttpRequest) { // Mozilla, Safari
+                xmlhttp = new XMLHttpRequest();
+                xmlhttp.onreadystatechange = hazirla;
+                xmlhttp.open("GET", pURL, true);
+                xmlhttp.send(null);
+            } else if (window.ActiveXObject) { //IE
+                xmlhttp = new ActiveXObject('Microsoft.XMLHTTP');
+                if (xmlhttp) {
+                    xmlhttp.onreadystatechange = hazirla;
+                    xmlhttp.open('GET', pURL, true);
+                    xmlhttp.send();
+                }
+            }
+        }
+
+        function hazirla() {
+            if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
+                veri = xmlhttp.responseText;
+                $("#content").empty();
+                $("#content").append(veri);
+            }
+        }
+
+    </script>
+
+</body>
+</html>

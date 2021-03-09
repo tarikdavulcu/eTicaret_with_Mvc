@@ -1,0 +1,248 @@
+﻿@model IEnumerable<e_ticaret.Models.SiteBilgileri>
+
+
+@foreach (var veri in Model)
+{
+    int sayi = 0;
+    double fiyat = 0;
+
+    <div class="header-topbar">
+        <div class="header-topbar-inner">
+            <!--Topbar Left-->
+            <div class="topbar-left hidden-sm-down">
+
+                <div class="phone"><i class="fa fa-phone left" aria-hidden="true"></i>Customer Support : <b>@veri.Tel</b></div>
+
+            </div>
+            <!--End Topbar Left-->
+            <!--Topbar Right-->
+            <div class="topbar-right">
+                <ul class="list-none">
+                    @foreach (var ayar in veri.Dil.Ayarlars)
+                    {
+                        if (ayar.DilID == veri.DilID)
+                        {
+                            if (ayar.SatisAktif == true)
+                            {
+                                <li>
+                                    <a href="login-register.html"><i class="fa fa-lock left" aria-hidden="true"></i><span class="hidden-sm-down">Login</span></a>
+                                </li>
+
+                                <li class="dropdown-nav">
+                                    <a href="login-register.html"><i class="fa fa-user left" aria-hidden="true"></i><span class="hidden-sm-down">My Account</span><i class="fa fa-angle-down right" aria-hidden="true"></i></a>
+                                    <!--Dropdown-->
+                                    <div class="dropdown-menu">
+                                        <ul>
+                                            <li><a href="login-register.html">My Account</a></li>
+                                            <li><a href="#">Order History</a></li>
+                                            <li><a href="#">Returns</a></li>
+                                            <li><a href="#">My Wishlist</a></li>
+                                            <li><a href="checkout.html">Checkout</a></li>
+                                        </ul>
+                                        <span class="divider"></span>
+                                        <ul>
+                                            <li><a href="login-register.html"><i class="fa fa-lock left" aria-hidden="true"></i>Login</a></li>
+                                            <li><a href="login-register.html"><i class="fa fa-user left" aria-hidden="true"></i>Create an Account</a></li>
+                                        </ul>
+                                    </div>
+                                    <!--End Dropdown-->
+                                </li>
+                            }
+                        }
+
+
+                    }
+
+                    <li class="dropdown-nav">
+                        <a href="#">LANGUE<i class="fa fa-angle-down right" aria-hidden="true"></i></a>
+                        <!--Dropdown-->
+                        <div class="dropdown-menu">
+                            <ul>
+                                @foreach (var dil in ViewBag.Diller)
+                                {
+                                    <li><a href="@Url.Action("DilDegistir",new {DilID=@dil.ID,url=Request.Url.ToString()})">@dil.Adi</a></li>
+                                }
+                            </ul>
+                        </div>
+                        <!--End Dropdown-->
+                    </li>
+                    <li>
+                        <a href="/Shop/About">About</a>
+                    </li>
+                    <li>
+                        <a href="/Shop/Contact">Contact</a>
+                    </li>
+                    <li>
+                        <a href="/Shop/Blog">Blog</a>
+                    </li>
+                </ul>
+            </div>
+            <!-- End Topbar Right -->
+        </div>
+    </div>
+
+
+    <div id="header-sticky" class="header-main">
+        <div class="header-main-inner">
+            <!-- Logo -->
+            <div class="logo">
+                <a href="/Shop/Index">
+                    <img src="~/Content/img/@veri.SiteLogo" alt="E-Ticaret" />
+                </a>
+            </div>
+
+            <div id="sepet">
+                @foreach (var ayarlar in veri.Dil.Ayarlars)
+                {
+                    if (veri.DilID == ayarlar.DilID)
+                    {
+                        if (ayarlar.SatisAktif == true)
+                        {
+
+                            <div class="header-rightside-nav">
+                                <!-- Login-Register Link -->
+                                <div class="header-btn-link hidden-lg-down"><a href="/Shop/Sepetim" class="btn btn-sm btn-color">Buy Now</a></div>
+                                <!-- End Login-Register Link -->
+                                <!-- Sidebar Icon -->
+                                <div class="sidebar-icon-nav">
+                                    <ul class="list-none-ib">
+                                        <!-- Search-->
+                                        <li><a id="search-overlay-menu-btn"><i aria-hidden="true" class="fa fa-search"></i></a></li>
+
+                                        <!-- Whishlist-->
+                                        <li><a class="js_whishlist-btn"><i aria-hidden="true" class="fa fa-heart"></i><span class="countTip">0</span></a></li>
+
+                                        <!-- Cart-->
+                                        <li>
+                                            <a id="sidebar_toggle_btn">
+                                                <div class="cart-icon">
+                                                    <i aria-hidden="true" class="fa fa-shopping-bag"></i>
+                                                </div>
+
+                                                <div class="cart-title">
+                                                    <span class="cart-count">
+                                                        @foreach (var sepet in ViewBag.Sepet)
+                                                        {
+
+                                                            foreach (var si in sepet.Sepet_Detay)
+                                                            {
+                                                                sayi++;
+                                                                fiyat += double.Parse((@si.Fiyat * @si.Adet).ToString());
+                                                            }
+                                                        }
+                                                        @sayi
+                                                    </span>
+                                                    /
+                                                    <span class="cart-price strong">
+                                                        @fiyat
+                                                    </span>
+                                                </div>
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </div>
+                                <!-- End Sidebar Icon -->
+                            </div>
+
+
+                            <section id="sidebar-right" class="sidebar-menu sidebar-right">
+                                <div class="cart-sidebar-wrap">
+                                    <div class="cart-widget-heading">
+                                        <h4>Shopping Cart</h4>
+                                        <a href="javascript:void(0)" id="sidebar_close_icon" class="close-icon-white"></a>
+                                    </div>
+                                    <div class="cart-widget-content">
+                                        <div class="cart-widget-product ">
+                                            @{
+
+                                                if (ViewBag.Sepet.Count > 0)
+                                                {
+
+                                                    <ul class="cart-product-item">
+                                                        @foreach (var sepet in ViewBag.Sepet)
+                                                        {
+
+                                                            foreach (var si in sepet.Sepet_Detay)
+                                                            {
+                                                                string a = "c" + @si.ID;
+                                                                <li id="@a">
+                                                                    @foreach (var u in si.Urunler.UrunlerLs)
+                                                                    {
+                                                                        if (u.DilID == veri.DilID)
+                                                                        {
+                                                                            <a href="/Urunler/UrunDetay/@u.SeoLink" class="product-image">
+                                                                                <img src="~/Content/img/product-img/small/@u.Resim" alt="@u.SeoLink" />
+                                                                            </a>
+
+                                                                            <div class="product-content">
+                                                                                <a class="product-link" href="/Urunler/UrunDetay/@u.SeoLink">@u.UrunAdi</a>
+
+                                                                                <div class="cart-collateral">
+                                                                                    <span class="qty-cart">@si.Adet</span>&nbsp;<span>&#215;</span>&nbsp;<span class="product-price-amount"><span class="currency-sign"></span>@si.Fiyat.ToString("C2")</span>
+                                                                                </div>
+                                                                                <a class="product-remove" onclick="sil(@si.ID,'c');"><i class="fa fa-times-circle" aria-hidden="true"></i></a>
+                                                                            </div>
+
+                                                                        }
+                                                                    }
+                                                                </li>
+                                                            }
+
+                                                        }
+
+                                                    </ul>
+
+                                                }
+                                                else if (ViewBag.Sepet.Count == 0)
+                                                {
+                                                    <div class="cart-empty">
+                                                        <p>You have no items in your shopping cart.</p>
+                                                    </div>
+                                                }
+                                            }
+
+
+                                        </div>
+                                    </div>
+                                    <div class="cart-widget-footer">
+                                        <div class="cart-footer-inner">
+                                            <h4 class="cart-total-hedding normal"><span>Total :</span><span class="cart-total-price">@fiyat</span></h4>
+                                            <div class="cart-action-buttons">
+                                                <a href="/Shop/Sepetim" class="view-cart btn btn-md btn-gray">View Cart</a>
+                                                <a href="#" class="checkout btn btn-md btn-color">Checkout</a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </section>
+
+                            <div id="sidebar_overlay" class="sidebar_overlay">
+
+                            </div>
+                                                        }
+                                                    }
+                                                }
+
+
+            </div>
+
+
+            <nav class="navigation-menu">
+                <ul>
+                    @foreach (var kat in veri.Dil.KategoriLs.Where(k=> k.Aktif==true).OrderByDescending(p => p.SiraNo))
+                    {
+                        if (veri.DilID == kat.DID)
+                        {
+                    <li>
+                        <a href="/Urunler/Index/@kat.Seolink">@kat.Adi</a>
+                    </li>
+                        }
+                    }
+                </ul>
+            </nav>
+
+        </div>
+    </div>
+
+
+}

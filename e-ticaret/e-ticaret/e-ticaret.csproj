@@ -1,0 +1,585 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.0\build\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props" Condition="Exists('..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.0\build\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" />
+  <Import Project="..\packages\Microsoft.Net.Compilers.1.0.0\build\Microsoft.Net.Compilers.props" Condition="Exists('..\packages\Microsoft.Net.Compilers.1.0.0\build\Microsoft.Net.Compilers.props')" />
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>
+    </ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{C6083E6A-BD84-4222-82BD-115F3DAC7A89}</ProjectGuid>
+    <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>e_ticaret</RootNamespace>
+    <AssemblyName>e-ticaret</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <UseIISExpress>true</UseIISExpress>
+    <IISExpressSSLPort />
+    <IISExpressAnonymousAuthentication />
+    <IISExpressWindowsAuthentication />
+    <IISExpressUseClassicPipelineMode />
+    <UseGlobalApplicationHostFile />
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.AI.Agent.Intercept, Version=2.4.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ApplicationInsights.Agent.Intercept.2.4.0\lib\net45\Microsoft.AI.Agent.Intercept.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.AI.DependencyCollector, Version=2.4.1.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ApplicationInsights.DependencyCollector.2.4.1\lib\net45\Microsoft.AI.DependencyCollector.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.AI.PerfCounterCollector, Version=2.4.1.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ApplicationInsights.PerfCounterCollector.2.4.1\lib\net45\Microsoft.AI.PerfCounterCollector.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.AI.ServerTelemetryChannel, Version=2.4.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ApplicationInsights.WindowsServer.TelemetryChannel.2.4.0\lib\net45\Microsoft.AI.ServerTelemetryChannel.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.AI.Web, Version=2.4.1.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ApplicationInsights.Web.2.4.1\lib\net45\Microsoft.AI.Web.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.AI.WindowsServer, Version=2.4.1.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ApplicationInsights.WindowsServer.2.4.1\lib\net45\Microsoft.AI.WindowsServer.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.ApplicationInsights, Version=2.4.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ApplicationInsights.2.4.0\lib\net45\Microsoft.ApplicationInsights.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.AspNet.TelemetryCorrelation, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.TelemetryCorrelation.1.0.0\lib\net45\Microsoft.AspNet.TelemetryCorrelation.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.CodeDom.Providers.DotNetCompilerPlatform, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.0\lib\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="Newtonsoft.Json">
+      <HintPath>..\..\..\..\..\Desktop\e-ticaret\e-ticaret\bin\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Data.Entity" />
+    <Reference Include="System.Data.Entity.Design" />
+    <Reference Include="System.Data.Linq" />
+    <Reference Include="System.Diagnostics.DiagnosticSource, Version=4.0.2.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Diagnostics.DiagnosticSource.4.4.0\lib\net45\System.Diagnostics.DiagnosticSource.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Web.DynamicData" />
+    <Reference Include="System.Web.Entity">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Web.ApplicationServices" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Web">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Web.Services">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.EnterpriseServices" />
+    <Reference Include="System.Xml.Linq" />
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="System.Web.Razor">
+      <HintPath>..\packages\Microsoft.AspNet.Razor.3.2.3\lib\net45\System.Web.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Webpages">
+      <HintPath>..\packages\Microsoft.AspNet.Webpages.3.2.3\lib\net45\System.Web.Webpages.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Webpages.Deployment">
+      <HintPath>..\packages\Microsoft.AspNet.Webpages.3.2.3\lib\net45\System.Web.Webpages.Deployment.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Webpages.Razor">
+      <HintPath>..\packages\Microsoft.AspNet.Webpages.3.2.3\lib\net45\System.Web.Webpages.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Helpers">
+      <HintPath>..\packages\Microsoft.AspNet.Webpages.3.2.3\lib\net45\System.Web.Helpers.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Web.Infrastructure">
+      <HintPath>..\packages\Microsoft.Web.Infrastructure.1.0.0.0\lib\net40\Microsoft.Web.Infrastructure.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Mvc">
+      <HintPath>..\packages\Microsoft.AspNet.Mvc.5.2.3\lib\net45\System.Web.Mvc.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Admin\assets\css\jquery.nestable.css" />
+    <Content Include="Admin\assets\js\bootstrap-hover-dropdown.js" />
+    <Content Include="Admin\assets\js\bootstrap-submenu\css\bootstrap-submenu.css" />
+    <Content Include="Admin\assets\js\bootstrap-submenu\js\bootstrap-submenu.js" />
+    <Content Include="Admin\assets\js\Chart.js" />
+    <Content Include="Admin\assets\js\echarts\echarts-all-3.js" />
+    <Content Include="Admin\assets\js\fileupload-main.js" />
+    <Content Include="Admin\assets\js\fuelux\css\tree-style.css" />
+    <Content Include="Admin\assets\js\fuelux\img\tree-icons.png" />
+    <Content Include="Admin\assets\js\fuelux\js\init-tree.js" />
+    <Content Include="Admin\assets\js\fuelux\js\tree.min.js" />
+    <Content Include="Admin\assets\js\horizontal-timeline\css\style.css" />
+    <Content Include="Admin\assets\js\horizontal-timeline\img\cd-arrow.png" />
+    <Content Include="Admin\assets\js\horizontal-timeline\js\jquery.mobile.custom.min.js" />
+    <Content Include="Admin\assets\js\horizontal-timeline\js\main.js" />
+    <Content Include="Admin\assets\js\init-c3.js" />
+    <Content Include="Admin\assets\js\init-calendar.js" />
+    <Content Include="Admin\assets\js\init-chartjs.js" />
+    <Content Include="Admin\assets\js\init-colorpicker.js" />
+    <Content Include="Admin\assets\js\init-datatables.js" />
+    <Content Include="Admin\assets\js\init-datepicker.js" />
+    <Content Include="Admin\assets\js\init-daterangepicker.js" />
+    <Content Include="Admin\assets\js\init-dropzone.js" />
+    <Content Include="Admin\assets\js\init-echarts.js" />
+    <Content Include="Admin\assets\js\init-flot.js" />
+    <Content Include="Admin\assets\js\init-highcharts-inner.js" />
+    <Content Include="Admin\assets\js\init-highcharts.js" />
+    <Content Include="Admin\assets\js\init-ion.rangeSlider.js" />
+    <Content Include="Admin\assets\js\init-jquery.steps.js" />
+    <Content Include="Admin\assets\js\init-morris.js" />
+    <Content Include="Admin\assets\js\init-nestable.js" />
+    <Content Include="Admin\assets\js\init-nvd3.js" />
+    <Content Include="Admin\assets\js\init-rickshaw.js" />
+    <Content Include="Admin\assets\js\init-select2.js" />
+    <Content Include="Admin\assets\js\init-sparkline.js" />
+    <Content Include="Admin\assets\js\init-switchery.js" />
+    <Content Include="Admin\assets\js\init-tagsinput.js" />
+    <Content Include="Admin\assets\js\init-timepicker.js" />
+    <Content Include="Admin\assets\js\init-toastr-notification.js" />
+    <Content Include="Admin\assets\js\init-touchspin.js" />
+    <Content Include="Admin\assets\js\init-validation.js" />
+    <Content Include="Admin\assets\js\jquery-easy-pie-chart\easypiechart.css" />
+    <Content Include="Admin\assets\js\jquery-easy-pie-chart\jquery.easypiechart.js" />
+    <Content Include="Admin\assets\js\mega-dropdown\css\reset.css" />
+    <Content Include="Admin\assets\js\mega-dropdown\css\style.css" />
+    <Content Include="Admin\assets\js\mega-dropdown\img\img.png" />
+    <Content Include="Admin\assets\js\mega-dropdown\img\nucleo-icon-1.svg" />
+    <Content Include="Admin\assets\js\mega-dropdown\img\nucleo-icon-10.svg" />
+    <Content Include="Admin\assets\js\mega-dropdown\img\nucleo-icon-11.svg" />
+    <Content Include="Admin\assets\js\mega-dropdown\img\nucleo-icon-12.svg" />
+    <Content Include="Admin\assets\js\mega-dropdown\img\nucleo-icon-2.svg" />
+    <Content Include="Admin\assets\js\mega-dropdown\img\nucleo-icon-3.svg" />
+    <Content Include="Admin\assets\js\mega-dropdown\img\nucleo-icon-4.svg" />
+    <Content Include="Admin\assets\js\mega-dropdown\img\nucleo-icon-5.svg" />
+    <Content Include="Admin\assets\js\mega-dropdown\img\nucleo-icon-6.svg" />
+    <Content Include="Admin\assets\js\mega-dropdown\img\nucleo-icon-7.svg" />
+    <Content Include="Admin\assets\js\mega-dropdown\img\nucleo-icon-8.svg" />
+    <Content Include="Admin\assets\js\mega-dropdown\img\nucleo-icon-9.svg" />
+    <Content Include="Admin\assets\js\mega-dropdown\js\jquery.menu-aim.js" />
+    <Content Include="Admin\assets\js\mega-dropdown\js\main.js" />
+    <Content Include="Admin\assets\js\mega-dropdown\js\modernizr.js" />
+    <Content Include="Admin\assets\js\modernizr-custom.js" />
+    <Content Include="Admin\assets\js\Note.js" />
+    <Content Include="Admin\assets\js\product-gallery\css\style.css" />
+    <Content Include="Admin\assets\js\product-gallery\js\main.js" />
+    <Content Include="Admin\assets\js\product-gallery\js\modernizr.js" />
+    <Content Include="Admin\assets\js\product-gallery\js\velocity.min.js" />
+    <Content Include="Admin\bower_components\autosize\dist\autosize.min.js" />
+    <Content Include="Admin\bower_components\blueimp-canvas-to-blob\js\canvas-to-blob.min.js" />
+    <Content Include="Admin\bower_components\blueimp-file-upload\css\jquery.fileupload-noscript.css" />
+    <Content Include="Admin\bower_components\blueimp-file-upload\css\jquery.fileupload-ui-noscript.css" />
+    <Content Include="Admin\bower_components\blueimp-file-upload\css\jquery.fileupload-ui.css" />
+    <Content Include="Admin\bower_components\blueimp-file-upload\css\jquery.fileupload.css" />
+    <Content Include="Admin\bower_components\blueimp-file-upload\img\loading.gif" />
+    <Content Include="Admin\bower_components\blueimp-file-upload\img\progressbar.gif" />
+    <Content Include="Admin\bower_components\blueimp-file-upload\js\jquery.fileupload-audio.js" />
+    <Content Include="Admin\bower_components\blueimp-file-upload\js\jquery.fileupload-image.js" />
+    <Content Include="Admin\bower_components\blueimp-file-upload\js\jquery.fileupload-process.js" />
+    <Content Include="Admin\bower_components\blueimp-file-upload\js\jquery.fileupload-ui.js" />
+    <Content Include="Admin\bower_components\blueimp-file-upload\js\jquery.fileupload-validate.js" />
+    <Content Include="Admin\bower_components\blueimp-file-upload\js\jquery.fileupload-video.js" />
+    <Content Include="Admin\bower_components\blueimp-file-upload\js\jquery.fileupload.js" />
+    <Content Include="Admin\bower_components\blueimp-file-upload\js\jquery.iframe-transport.js" />
+    <Content Include="Admin\bower_components\blueimp-file-upload\js\vendor\jquery.ui.widget.js" />
+    <Content Include="Admin\bower_components\blueimp-load-image\js\load-image.js" />
+    <Content Include="Admin\bower_components\blueimp-tmpl\js\tmpl.min.js" />
+    <Content Include="Admin\bower_components\bootstrap-colorpicker\dist\css\bootstrap-colorpicker.min.css" />
+    <Content Include="Admin\bower_components\bootstrap-colorpicker\dist\img\bootstrap-colorpicker\alpha-horizontal.png" />
+    <Content Include="Admin\bower_components\bootstrap-colorpicker\dist\img\bootstrap-colorpicker\alpha.png" />
+    <Content Include="Admin\bower_components\bootstrap-colorpicker\dist\img\bootstrap-colorpicker\hue-horizontal.png" />
+    <Content Include="Admin\bower_components\bootstrap-colorpicker\dist\img\bootstrap-colorpicker\hue.png" />
+    <Content Include="Admin\bower_components\bootstrap-colorpicker\dist\img\bootstrap-colorpicker\saturation.png" />
+    <Content Include="Admin\bower_components\bootstrap-colorpicker\dist\js\bootstrap-colorpicker.min.js" />
+    <Content Include="Admin\bower_components\bootstrap-datepicker\dist\css\bootstrap-datepicker3.min.css" />
+    <Content Include="Admin\bower_components\bootstrap-datepicker\dist\js\bootstrap-datepicker.min.js" />
+    <Content Include="Admin\bower_components\bootstrap-daterangepicker\daterangepicker.css" />
+    <Content Include="Admin\bower_components\bootstrap-daterangepicker\daterangepicker.js" />
+    <Content Include="Admin\bower_components\bootstrap-timepicker\css\bootstrap-timepicker.min.css" />
+    <Content Include="Admin\bower_components\bootstrap-timepicker\js\bootstrap-timepicker.js" />
+    <Content Include="Admin\bower_components\bootstrap-touchspin\dist\jquery.bootstrap-touchspin.min.css" />
+    <Content Include="Admin\bower_components\bootstrap-touchspin\dist\jquery.bootstrap-touchspin.min.js" />
+    <Content Include="Admin\bower_components\bootstrap-vertical-tabs\bootstrap.vertical-tabs.min.css" />
+    <Content Include="Admin\bower_components\bootstrap\dist\css\bootstrap.min.css" />
+    <Content Include="Admin\bower_components\bootstrap\dist\fonts\glyphicons-halflings-regular.svg" />
+    <Content Include="Admin\bower_components\bootstrap\dist\js\bootstrap.min.js" />
+    <Content Include="Admin\bower_components\bower-jquery-sparkline\dist\jquery.sparkline.retina.js" />
+    <Content Include="Admin\bower_components\c3\c3.min.css" />
+    <Content Include="Admin\bower_components\c3\c3.min.js" />
+    <Content Include="Admin\bower_components\d3\d3.min.js" />
+    <Content Include="Admin\bower_components\datatables-colvis\css\dataTables.colVis.css" />
+    <Content Include="Admin\bower_components\datatables-colvis\js\dataTables.colVis.js" />
+    <Content Include="Admin\bower_components\datatables-responsive\js\dataTables.responsive.js" />
+    <Content Include="Admin\bower_components\datatables-scroller\js\dataTables.scroller.js" />
+    <Content Include="Admin\bower_components\datatables-tabletools\css\dataTables.tableTools.css" />
+    <Content Include="Admin\bower_components\datatables-tabletools\images\collection.png" />
+    <Content Include="Admin\bower_components\datatables-tabletools\images\collection_hover.png" />
+    <Content Include="Admin\bower_components\datatables-tabletools\js\dataTables.tableTools.js" />
+    <Content Include="Admin\bower_components\datatables.net-bs\js\dataTables.bootstrap.min.js" />
+    <Content Include="Admin\bower_components\datatables.net\js\jquery.dataTables.min.js" />
+    <Content Include="Admin\bower_components\datatables\media\css\jquery.dataTables.css" />
+    <Content Include="Admin\bower_components\datatables\media\images\sort_asc.png" />
+    <Content Include="Admin\bower_components\datatables\media\images\sort_asc_disabled.png" />
+    <Content Include="Admin\bower_components\datatables\media\images\sort_both.png" />
+    <Content Include="Admin\bower_components\datatables\media\images\sort_desc.png" />
+    <Content Include="Admin\bower_components\datatables\media\images\sort_desc_disabled.png" />
+    <Content Include="Admin\bower_components\flot.tooltip\js\jquery.flot.tooltip.min.js" />
+    <Content Include="Admin\bower_components\Flot\jquery.flot.js" />
+    <Content Include="Admin\bower_components\Flot\jquery.flot.pie.js" />
+    <Content Include="Admin\bower_components\Flot\jquery.flot.resize.js" />
+    <Content Include="Admin\bower_components\Flot\jquery.flot.selection.js" />
+    <Content Include="Admin\bower_components\Flot\jquery.flot.stack.js" />
+    <Content Include="Admin\bower_components\Flot\jquery.flot.time.js" />
+    <Content Include="Admin\bower_components\font-awesome\css\font-awesome.min.css" />
+    <Content Include="Admin\bower_components\font-awesome\fonts\fontawesome-webfont3e6e.svg" />
+    <Content Include="Admin\bower_components\fullcalendar\dist\fullcalendar.js" />
+    <Content Include="Admin\bower_components\fullcalendar\dist\fullcalendar.min.css" />
+    <Content Include="Admin\bower_components\fullcalendar\dist\fullcalendar.print.min.css" />
+    <Content Include="Admin\bower_components\Gallery\css\blueimp-gallery.min.css" />
+    <Content Include="Admin\bower_components\Gallery\img\error.png" />
+    <Content Include="Admin\bower_components\Gallery\img\error.svg" />
+    <Content Include="Admin\bower_components\Gallery\img\loading.gif" />
+    <Content Include="Admin\bower_components\Gallery\img\play-pause.png" />
+    <Content Include="Admin\bower_components\Gallery\img\play-pause.svg" />
+    <Content Include="Admin\bower_components\Gallery\img\video-play.png" />
+    <Content Include="Admin\bower_components\Gallery\img\video-play.svg" />
+    <Content Include="Admin\bower_components\Gallery\js\jquery.blueimp-gallery.min.js" />
+    <Content Include="Admin\bower_components\highcharts\highcharts-more.js" />
+    <Content Include="Admin\bower_components\highcharts\highcharts.js" />
+    <Content Include="Admin\bower_components\highcharts\modules\exporting.js" />
+    <Content Include="Admin\bower_components\ion.rangeSlider\css\ion.rangeSlider.css" />
+    <Content Include="Admin\bower_components\ion.rangeSlider\css\ion.rangeSlider.skinFlat.css" />
+    <Content Include="Admin\bower_components\ion.rangeSlider\img\sprite-skin-flat.png" />
+    <Content Include="Admin\bower_components\ion.rangeSlider\js\ion.rangeSlider.min.js" />
+    <Content Include="Admin\bower_components\jasny-bootstrap\dist\css\jasny-bootstrap.min.css" />
+    <Content Include="Admin\bower_components\jasny-bootstrap\dist\js\jasny-bootstrap.min.js" />
+    <Content Include="Admin\bower_components\jquery-knob\dist\jquery.knob.min.js" />
+    <Content Include="Admin\bower_components\jquery-ui\jquery-ui.min.js" />
+    <Content Include="Admin\bower_components\jquery-validation\dist\jquery.validate.min.js" />
+    <Content Include="Admin\bower_components\jquery.nicescroll\dist\jquery.nicescroll.min.js" />
+    <Content Include="Admin\bower_components\jquery.steps\build\jquery.steps.min.js" />
+    <Content Include="Admin\bower_components\jquery.steps\demo\css\jquery.steps.css" />
+    <Content Include="Admin\bower_components\jquery.tagsinput\src\jquery.tagsinput.js" />
+    <Content Include="Admin\bower_components\jquery\dist\jquery.min.js" />
+    <Content Include="Admin\bower_components\moment\min\moment.min.js" />
+    <Content Include="Admin\bower_components\moment\moment.js" />
+    <Content Include="Admin\bower_components\morris.js\morris.css" />
+    <Content Include="Admin\bower_components\morris.js\morris.min.js" />
+    <Content Include="Admin\bower_components\Nestable\jquery.nestable.js" />
+    <Content Include="Admin\bower_components\nvd3\build\nv.d3.min.css" />
+    <Content Include="Admin\bower_components\nvd3\build\nv.d3.min.js" />
+    <Content Include="Admin\bower_components\raphael\raphael.min.js" />
+    <Content Include="Admin\bower_components\rickshaw\rickshaw.min.css" />
+    <Content Include="Admin\bower_components\rickshaw\rickshaw.min.js" />
+    <Content Include="Admin\bower_components\rickshaw\vendor\d3.layout.min.js" />
+    <Content Include="Admin\bower_components\rickshaw\vendor\d3.min.js" />
+    <Content Include="Admin\bower_components\select2\dist\css\select2.min.css" />
+    <Content Include="Admin\bower_components\select2\dist\js\select2.min.js" />
+    <Content Include="Admin\bower_components\simple-line-icons\css\simple-line-icons.css" />
+    <Content Include="Admin\bower_components\simple-line-icons\fonts\Simple-Line-Iconsb26c.svg" />
+    <Content Include="Admin\bower_components\store-js\store.min.js" />
+    <Content Include="Admin\bower_components\summernote\dist\summernote.css" />
+    <Content Include="Admin\bower_components\summernote\dist\summernote.js" />
+    <Content Include="Admin\bower_components\switchery\dist\switchery.min.css" />
+    <Content Include="Admin\bower_components\switchery\dist\switchery.min.js" />
+    <Content Include="Admin\bower_components\themify-icons\css\themify-icons.css" />
+    <Content Include="Admin\bower_components\themify-icons\fonts\themify.svg" />
+    <Content Include="Admin\bower_components\toastr\toastr.min.css" />
+    <Content Include="Admin\bower_components\toastr\toastr.min.js" />
+    <Content Include="Admin\bower_components\weather-icons\css\weather-icons.min.css" />
+    <Content Include="Admin\bower_components\weather-icons\font\weathericons-regular-webfont.svg" />
+    <Content Include="Admin\dist\css\main.css" />
+    <Content Include="Admin\dist\js\by.js" />
+    <Content Include="Admin\dist\js\jquery-3.2.1.min.js" />
+    <Content Include="Admin\dist\js\main.js" />
+    <Content Include="Admin\documan\diller.html" />
+    <Content Include="Admin\documan\firmabilgileri.html" />
+    <Content Include="Admin\documan\kategoriekleme.html" />
+    <Content Include="Admin\documan\kategoriler.html" />
+    <Content Include="Admin\documan\markalar.html" />
+    <Content Include="Admin\documan\promasyon.html" />
+    <Content Include="Admin\documan\siteayarlari.html" />
+    <Content Include="Admin\documan\slider.html" />
+    <Content Include="Admin\documan\urunduzenleme.html" />
+    <Content Include="Admin\documan\urunekleme.html" />
+    <Content Include="Admin\documan\urunler.html" />
+    <Content Include="Admin\forgot-password.html" />
+    <Content Include="Admin\imgs\a0.jpg" />
+    <Content Include="Admin\imgs\a1.jpg" />
+    <Content Include="Admin\imgs\a2.jpg" />
+    <Content Include="Admin\imgs\a3.jpg" />
+    <Content Include="Admin\imgs\flags\de.png" />
+    <Content Include="Admin\imgs\flags\es.png" />
+    <Content Include="Admin\imgs\flags\fr.png" />
+    <Content Include="Admin\imgs\flags\ru.png" />
+    <Content Include="Admin\imgs\flags\us.png" />
+    <Content Include="Admin\imgs\gallery\image1.jpg" />
+    <Content Include="Admin\imgs\gallery\image2.jpg" />
+    <Content Include="Admin\imgs\gallery\image3.jpg" />
+    <Content Include="Admin\imgs\gallery\image4.jpg" />
+    <Content Include="Admin\imgs\gallery\image5.jpg" />
+    <Content Include="Admin\imgs\logo-dark.png" />
+    <Content Include="Admin\imgs\logo-icon-dark.png" />
+    <Content Include="Admin\imgs\logo-icon-light.png" />
+    <Content Include="Admin\imgs\logo-light.png" />
+    <Content Include="Admin\imgs\photos\user1.png" />
+    <Content Include="Admin\imgs\photos\user2.png" />
+    <Content Include="Admin\imgs\photos\user3.png" />
+    <Content Include="Admin\imgs\product_img-1.png" />
+    <Content Include="Admin\imgs\product_img-2.png" />
+    <Content Include="Admin\imgs\product_img-3.png" />
+    <Content Include="Admin\imgs\product_img.png" />
+    <Content Include="Admin\index.html" />
+    <Content Include="Admin\login.html" />
+    <Content Include="e-ticaretyonetimdata.asmx" />
+    <Content Include="Global.asax" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Controllers\KategoriController.cs" />
+    <Compile Include="Controllers\SepetController.cs" />
+    <Compile Include="Controllers\ShopController.cs" />
+    <Compile Include="Controllers\UrunlerController.cs" />
+    <Compile Include="e-ticaretyonetimdata.asmx.cs">
+      <DependentUpon>e-ticaretyonetimdata.asmx</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Global.asax.cs">
+      <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Ayarlar.cs" />
+    <Compile Include="Models\Bedenler.cs" />
+    <Compile Include="Models\BlogHaber.cs" />
+    <Compile Include="Models\BlogHaberL.cs" />
+    <Compile Include="Models\BlogKategori.cs" />
+    <Compile Include="Models\BlogKategoriL.cs" />
+    <Compile Include="Models\Dil.cs" />
+    <Compile Include="Models\eTicaretContext.cs" />
+    <Compile Include="Models\Etiket.cs" />
+    <Compile Include="Models\Kategori.cs" />
+    <Compile Include="Models\KategoriL.cs" />
+    <Compile Include="Models\Kullanicilar.cs" />
+    <Compile Include="Models\KullaniciRol.cs" />
+    <Compile Include="Models\Mapping\AyarlarMap.cs" />
+    <Compile Include="Models\Mapping\BedenlerMap.cs" />
+    <Compile Include="Models\Mapping\BlogHaberLMap.cs" />
+    <Compile Include="Models\Mapping\BlogHaberMap.cs" />
+    <Compile Include="Models\Mapping\BlogKategoriLMap.cs" />
+    <Compile Include="Models\Mapping\BlogKategoriMap.cs" />
+    <Compile Include="Models\Mapping\DilMap.cs" />
+    <Compile Include="Models\Mapping\EtiketMap.cs" />
+    <Compile Include="Models\Mapping\KategoriLMap.cs" />
+    <Compile Include="Models\Mapping\KategoriMap.cs" />
+    <Compile Include="Models\Mapping\KullanicilarMap.cs" />
+    <Compile Include="Models\Mapping\KullaniciRolMap.cs" />
+    <Compile Include="Models\Mapping\MarkalarMap.cs" />
+    <Compile Include="Models\Mapping\MenuLMap.cs" />
+    <Compile Include="Models\Mapping\MenuMap.cs" />
+    <Compile Include="Models\Mapping\MesajlarMap.cs" />
+    <Compile Include="Models\Mapping\MetinlerMap.cs" />
+    <Compile Include="Models\Mapping\MusteriAdresleriMap.cs" />
+    <Compile Include="Models\Mapping\MusterilerMap.cs" />
+    <Compile Include="Models\Mapping\OdemeDetayMap.cs" />
+    <Compile Include="Models\Mapping\OlculerMap.cs" />
+    <Compile Include="Models\Mapping\PromosyonMap.cs" />
+    <Compile Include="Models\Mapping\RenklerMap.cs" />
+    <Compile Include="Models\Mapping\SepetMap.cs" />
+    <Compile Include="Models\Mapping\Sepet_DetayMap.cs" />
+    <Compile Include="Models\Mapping\SiteBilgileriMap.cs" />
+    <Compile Include="Models\Mapping\SliderMap.cs" />
+    <Compile Include="Models\Mapping\sysdiagramMap.cs" />
+    <Compile Include="Models\Mapping\Tedarikci_FirmalarMap.cs" />
+    <Compile Include="Models\Mapping\UrunFiyatlariMap.cs" />
+    <Compile Include="Models\Mapping\UrunlerLMap.cs" />
+    <Compile Include="Models\Mapping\UrunlerMap.cs" />
+    <Compile Include="Models\Mapping\UrunResimleriMap.cs" />
+    <Compile Include="Models\Mapping\Urun_YorumlariMap.cs" />
+    <Compile Include="Models\Markalar.cs" />
+    <Compile Include="Models\Menu.cs" />
+    <Compile Include="Models\MenuL.cs" />
+    <Compile Include="Models\Mesajlar.cs" />
+    <Compile Include="Models\Metinler.cs" />
+    <Compile Include="Models\MusteriAdresleri.cs" />
+    <Compile Include="Models\Musteriler.cs" />
+    <Compile Include="Models\OdemeDetay.cs" />
+    <Compile Include="Models\Olculer.cs" />
+    <Compile Include="Models\Promosyon.cs" />
+    <Compile Include="Models\Renkler.cs" />
+    <Compile Include="Models\Sepet.cs" />
+    <Compile Include="Models\Sepet_Detay.cs" />
+    <Compile Include="Models\SiteBilgileri.cs" />
+    <Compile Include="Models\Slider.cs" />
+    <Compile Include="Models\sysdiagram.cs" />
+    <Compile Include="Models\Tedarikci_Firmalar.cs" />
+    <Compile Include="Models\UrunFiyatlari.cs" />
+    <Compile Include="Models\Urunler.cs" />
+    <Compile Include="Models\UrunlerL.cs" />
+    <Compile Include="Models\UrunResimleri.cs" />
+    <Compile Include="Models\Urun_Yorumlari.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\web.config">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="packages.config" />
+    <Content Include="ApplicationInsights.config">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Views\Shop\Index.cshtml" />
+    <Content Include="Views\Shared\_Root.cshtml" />
+    <Content Include="Views\Kategori\Kategori.cshtml" />
+    <Content Include="Views\Shop\Slider.cshtml" />
+    <Content Include="Views\Shop\PromosyonBanner.cshtml" />
+    <Content Include="Views\Shop\PromosyonBannerDortlu.cshtml" />
+    <Content Include="Views\Kategori\KategoriContent.cshtml" />
+    <Content Include="Views\Urunler\Index.cshtml" />
+    <Content Include="Views\Urunler\UrunlerAnaSayfa.cshtml" />
+    <Content Include="Views\Urunler\UrunDetay.cshtml" />
+    <Content Include="Admin\bower_components\bootstrap\dist\fonts\glyphicons-halflings-regular.eot" />
+    <Content Include="Admin\bower_components\bootstrap\dist\fonts\glyphicons-halflings-regular.ttf" />
+    <Content Include="Admin\bower_components\bootstrap\dist\fonts\glyphicons-halflings-regular.woff" />
+    <Content Include="Admin\bower_components\bootstrap\dist\fonts\glyphicons-halflings-regular.woff2" />
+    <Content Include="Admin\bower_components\bootstrap\dist\fonts\glyphicons-halflings-regulard41d.eot" />
+    <Content Include="Admin\bower_components\datatables-responsive\css\responsive.dataTables.scss" />
+    <Content Include="Admin\bower_components\datatables-scroller\css\scroller.dataTables.scss" />
+    <Content Include="Admin\bower_components\font-awesome\fonts\fontawesome-webfont3e6e.eot" />
+    <Content Include="Admin\bower_components\font-awesome\fonts\fontawesome-webfont3e6e.ttf" />
+    <Content Include="Admin\bower_components\font-awesome\fonts\fontawesome-webfont3e6e.woff" />
+    <Content Include="Admin\bower_components\font-awesome\fonts\fontawesome-webfont3e6e.woff2" />
+    <Content Include="Admin\bower_components\font-awesome\fonts\fontawesome-webfontd41d.eot" />
+    <Content Include="Admin\bower_components\simple-line-icons\fonts\Simple-Line-Iconsb26c.eot" />
+    <Content Include="Admin\bower_components\simple-line-icons\fonts\Simple-Line-Iconsb26c.ttf" />
+    <Content Include="Admin\bower_components\simple-line-icons\fonts\Simple-Line-Iconsb26c.woff" />
+    <Content Include="Admin\bower_components\simple-line-icons\fonts\Simple-Line-Iconsb26c.woff2" />
+    <Content Include="Admin\bower_components\summernote\dist\font\summernoted41d.eot" />
+    <Content Include="Admin\bower_components\summernote\dist\font\summernotef534.eot" />
+    <Content Include="Admin\bower_components\summernote\dist\font\summernotef534.ttf" />
+    <Content Include="Admin\bower_components\summernote\dist\font\summernotef534.woff" />
+    <Content Include="Admin\bower_components\themify-icons\fonts\themify.eot" />
+    <Content Include="Admin\bower_components\themify-icons\fonts\themify.ttf" />
+    <Content Include="Admin\bower_components\themify-icons\fonts\themify.woff" />
+    <Content Include="Admin\bower_components\themify-icons\fonts\themifyd41d.eot" />
+    <Content Include="Admin\bower_components\weather-icons\font\weathericons-regular-webfont.eot" />
+    <Content Include="Admin\bower_components\weather-icons\font\weathericons-regular-webfont.ttf" />
+    <Content Include="Admin\bower_components\weather-icons\font\weathericons-regular-webfont.woff" />
+    <Content Include="Admin\bower_components\weather-icons\font\weathericons-regular-webfont.woff2" />
+    <Content Include="Admin\bower_components\weather-icons\font\weathericons-regular-webfontd41d.eot" />
+    <Content Include="Admin\imgs\photos\Thumbs.db" />
+    <Content Include="Admin\imgs\Thumbs.db" />
+    <None Include="Properties\PublishProfiles\eticaret.pubxml" />
+    <Content Include="Views\Shop\HeaderTopBar.cshtml" />
+    <Content Include="Views\Shop\Fotter.cshtml" />
+    <Content Include="web.config">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Views\Shop\About.cshtml" />
+    <Content Include="Views\Shop\Contact.cshtml" />
+    <Content Include="Views\Sepet\Sepet.cshtml" />
+    <Content Include="Views\Urunler\Sepet.cshtml" />
+    <Content Include="Views\Shop\Sepetim.cshtml" />
+    <Content Include="Views\Shop\Blog.cshtml" />
+    <Content Include="Views\Shop\InstagramList.cshtml" />
+    <None Include="web.Debug.config">
+      <DependentUpon>web.config</DependentUpon>
+    </None>
+    <None Include="web.Release.config">
+      <DependentUpon>web.config</DependentUpon>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Content\css\" />
+    <Folder Include="Content\html\" />
+    <Folder Include="Content\img\" />
+    <Folder Include="Content\js\" />
+    <Folder Include="Content\plugins\" />
+  </ItemGroup>
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+  </PropertyGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets" Condition="'$(VSToolsPath)' != ''" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" Condition="false" />
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>True</UseIIS>
+          <AutoAssignPort>True</AutoAssignPort>
+          <DevelopmentServerPort>1718</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>http://localhost:1718/</IISUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>False</UseCustomServer>
+          <CustomServerUrl>
+          </CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>This project references NuGet package(s) that are missing on this computer. Use NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('..\packages\Microsoft.Net.Compilers.1.0.0\build\Microsoft.Net.Compilers.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.Net.Compilers.1.0.0\build\Microsoft.Net.Compilers.props'))" />
+    <Error Condition="!Exists('..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.0\build\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.0\build\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props'))" />
+  </Target>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

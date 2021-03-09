@@ -1,0 +1,145 @@
+﻿@model  IEnumerable<e_ticaret.Models.SiteBilgileri>
+
+@{
+    Layout = null;
+}
+
+@foreach (var veri in Model)
+{
+    int sayi = 0;
+    double fiyat = 0;
+
+    foreach (var ayarlar in veri.Dil.Ayarlars)
+    {
+        if (veri.DilID == ayarlar.DilID)
+        {
+            if (ayarlar.SatisAktif == true)
+            {
+
+                <div class="header-rightside-nav">
+                    <!-- Login-Register Link -->
+                    <div class="header-btn-link hidden-lg-down"><a href="#" class="btn btn-sm btn-color">Buy Now</a></div>
+                    <!-- End Login-Register Link -->
+                    <!-- Sidebar Icon -->
+                    <div class="sidebar-icon-nav">
+                        <ul class="list-none-ib">
+                            <!-- Search-->
+                            <li><a id="search-overlay-menu-btn"><i aria-hidden="true" class="fa fa-search"></i></a></li>
+
+                            <!-- Whishlist-->
+                            <li><a class="js_whishlist-btn"><i aria-hidden="true" class="fa fa-heart"></i><span class="countTip">0</span></a></li>
+
+                            <!-- Cart-->
+                            <li>
+                                <a id="sidebar_toggle_btn">
+                                    <div class="cart-icon">
+                                        <i aria-hidden="true" class="fa fa-shopping-bag"></i>
+                                    </div>
+
+                                    <div class="cart-title">
+                                        <span class="cart-count">
+                                            @foreach (var sepet in ViewBag.Sepet)
+                                            {
+
+                                                foreach (var si in sepet.Sepet_Detay)
+                                                {
+                                                    sayi++;
+                                                    fiyat += double.Parse((@si.Fiyat * @si.Adet).ToString());
+                                                }
+                                            }
+                                            @sayi
+                                        </span>
+                                        /
+                                        <span class="cart-price strong">
+                                            @fiyat
+                                        </span>
+                                    </div>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                    <!-- End Sidebar Icon -->
+                </div>
+
+
+                <section id="sidebar-right" class="sidebar-menu sidebar-right">
+                    <div class="cart-sidebar-wrap">
+
+                        <!-- Cart Headiing -->
+                        <div class="cart-widget-heading">
+                            <h4>Shopping Cart</h4>
+                            <!-- Close Icon -->
+                            <a href="javascript:void(0)" id="sidebar_close_icon" class="close-icon-white"></a>
+                            <!-- End Close Icon -->
+                        </div>
+                        <!-- End Cart Headiing -->
+                        <!-- Cart Product Content -->
+                        <div class="cart-widget-content">
+                            <div class="cart-widget-product ">
+                                @{
+
+                                    if (ViewBag.Sepet.Count > 0)
+                                    {
+                                        <ul class="cart-product-item">
+                                            @foreach (var sepet in ViewBag.Sepet)
+                                            {
+
+                                                foreach (var si in sepet.Sepet_Detay)
+                                                {
+                                                    string a = "c" + @si.ID;
+                                                    <li id="@a">
+                                                        @foreach (var u in si.Urunler.UrunlerLs)
+                                                        {
+                                                            if (u.DilID == veri.DilID)
+                                                            {
+                                                                <a href="/Urunler/UrunDetay/@u.SeoLink" class="product-image">
+                                                                    <img src="~/Content/img/product-img/small/@u.Resim" alt="@u.SeoLink" />
+                                                                </a>
+
+                                                                <div class="product-content">
+                                                                    <a class="product-link" href="/Urunler/UrunDetay/@u.SeoLink">@u.UrunAdi</a>
+
+                                                                    <div class="cart-collateral">
+                                                                        <span class="qty-cart">@si.Adet</span>&nbsp;<span>&#215;</span>&nbsp;<span class="product-price-amount"><span class="currency-sign"></span>@si.Fiyat.ToString("C2")</span>
+                                                                    </div>
+                                                                    <a class="product-remove" onclick="sil(@si.ID,'c');"><i class="fa fa-times-circle" aria-hidden="true"></i></a>
+                                                                </div>
+                                                            }
+                                                        }
+                                                    </li>
+                                                }
+
+                                            }
+
+                                        </ul>
+
+                                    }
+                                    else if (ViewBag.Sepet.Count == 0)
+                                    {
+                                        <div class="cart-empty">
+                                            <p>You have no items in your shopping cart.</p>
+                                        </div>
+                                    }
+                                }
+
+
+                            </div>
+                        </div>
+                        <div class="cart-widget-footer">
+                            <div class="cart-footer-inner">
+                                <h4 class="cart-total-hedding normal"><span>Total :</span><span class="cart-total-price">@fiyat</span></h4>
+                                <div class="cart-action-buttons">
+                                    <a href="/Shop/Sepetim" class="view-cart btn btn-md btn-gray">View Cart</a>
+                                    <a href="#" class="checkout btn btn-md btn-color">Checkout</a>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <div class="sidebar_overlay"></div>
+                                                }
+                                            }
+                                        }
+                                    }
